@@ -1,0 +1,15 @@
+{
+  "title": "Product",
+  "description": "Description",
+  "table": {
+    "header": {
+      "title": "Title",
+      "price": "Price",
+      "category": "Category",
+      "serial": "Serial",
+      "stock_quantity": "Stock Quantity",
+      "sku": "SKU",
+      "created_at": "Created At"
+    }
+  }
+}

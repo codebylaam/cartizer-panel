@@ -1,0 +1,18 @@
+{
+  "title": "Inventory",
+  "add": "Add Stock",
+  "table": {
+    "header": {
+      "name": "Product Name",
+      "sku": "SKU",
+      "price": "Price",
+      "stock_quantity": "Stock Quantity",
+      "status": "Stock Status"
+    }
+  },
+  "status": {
+    "in_stock": "In Stock",
+    "low_stock": "Low Stock",
+    "out_of_stock": "Out of Stock"
+  }
+}

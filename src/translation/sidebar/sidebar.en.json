@@ -1,0 +1,41 @@
+{
+  "dashboard": {
+    "title": "Dashboard"
+  },
+  "product": {
+    "title": "Product",
+    "list": "Product List",
+    "create": "Create Product"
+  },
+  "category": {
+    "title": "Category",
+    "list": "Category List",
+    "create": "Create Category"
+  },
+  "order": {
+    "title": "Order",
+    "list": "Order List",
+    "create": "Create Order"
+  },
+  "customer": {
+    "title": "Customer",
+    "list": "Customer List",
+    "create": "Create Customer"
+  },
+  "inventory": {
+    "title": "Inventory",
+    "list": "Inventory List",
+    "create": "Create Inventory"
+  },
+  "media": {
+    "title": "Media",
+    "list": "Media List",
+    "create": "Create Media"
+  },
+  "settings": {
+    "title": "Settings",
+    "general": "General",
+    "shipping": "Shipping",
+    "payment": "Payment"
+  }
+}

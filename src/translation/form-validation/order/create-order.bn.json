@@ -1,0 +1,108 @@
+{
+  "heading": "অর্ডার তৈরি করুন",
+  "submit": "অর্ডার সংরক্ষণ করুন",
+  "form": {
+    "customer": "গ্রাহকের তথ্যাবলী",
+    "customer_name": {
+      "label": "গ্রাহকের নাম",
+      "placeholder": "যেমন: Guest Customer",
+      "description": "গ্রাহকের পুরো নাম"
+    },
+    "customer_phone": {
+      "label": "গ্রাহকের ফোন নম্বর",
+      "placeholder": "+8801912345670",
+      "description": "গ্রাহকের যোগাযোগের ফোন নম্বর"
+    },
+    "items": {
+      "heading": "পণ্যসমূহ",
+      "select_product_btn": "পণ্য নির্বাচন করুন",
+      "empty_text": "এখনও কোনো পণ্য যোগ করা হয়নি।",
+      "add_item": "নতুন পণ্য যোগ করুন",
+      "remove_item": "মুছে ফেলুন",
+      "search_placeholder": "পণ্য খুঁজুন...",
+      "browse": "ব্রাউজ করুন",
+      "none": "কোনটিই নয়",
+      "added": "যুক্ত হয়েছে",
+      "select": "নির্বাচন করুন",
+      "stock": "স্টক",
+      "in_stock": "{{count}} টি স্টকে আছে",
+      "standard_variant": "স্ট্যান্ডার্ড",
+      "header": {
+        "product": "পণ্যসমূহ",
+        "quantity": "পরিমাণ",
+        "total": "মোট"
+      },
+      "select_product": {
+        "modal_title": "পণ্য নির্বাচন করুন",
+        "modal_description": "এই অর্ডারে যোগ করতে পণ্য খুঁজুন এবং ভ্যারিয়েন্ট নির্বাচন করুন",
+        "search_placeholder": "নাম বা SKU দিয়ে পণ্য খুঁজুন..."
+      },
+      "product_name": {
+        "label": "পণ্যের নাম",
+        "placeholder": "Custom Tailored Jacket"
+      },
+      "sku": {
+        "label": "SKU",
+        "placeholder": "CUSTOM-JKT-01"
+      },
+      "unit_price": {
+        "label": "একক মূল্য (টাকা)",
+        "placeholder": "0.00"
+      },
+      "quantity": {
+        "label": "পরিমাণ",
+        "placeholder": "1"
+      }
+    },
+    "payment": "পেমেন্ট ও ডেলিভারি",
+    "payment_status": {
+      "label": "পেমেন্ট স্ট্যাটাস",
+      "description": "বর্তমান পেমেন্ট স্ট্যাটাস নির্বাচন করুন",
+      "options": {
+        "paid": "পরিশোধিত (Paid)",
+        "unpaid": "অপরিশোধিত (Unpaid)",
+        "pending": "অপেক্ষমাণ (Pending)",
+        "partial": "আংশিক (Partial)",
+        "refunded": "ফেরত (Refunded)"
+      }
+    },
+    "payment_method": {
+      "label": "পেমেন্ট পদ্ধতি",
+      "description": "পেমেন্টের মাধ্যম নির্বাচন করুন",
+      "options": {
+        "bkash": "বিকাশ (bKash)",
+        "nagad": "নগদ (Nagad)",
+        "rocket": "রকেট (Rocket)",
+        "cash_on_delivery": "ক্যাশ অন ডেলিভারি",
+        "bank_transfer": "ব্যাংক ট্রান্সফার",
+        "card": "কার্ড"
+      }
+    },
+    "delivery_charge": {
+      "label": "ডেলিভারি চার্জ (টাকা)",
+      "description": "ডেলিভারি ফির পরিমাণ"
+    },
+    "discount": {
+      "label": "ডিসকাউন্ট (টাকা)",
+      "description": "ছাড়ের পরিমাণ"
+    },
+    "summary": {
+      "heading": "অর্ডার সারসংক্ষেপ",
+      "subtotal": "সাবটোটাল",
+      "discount": "ডিসকাউন্ট",
+      "delivery_charge": "ডেলিভারি চার্জ",
+      "total": "সর্বমোট মূল্য"
+    }
+  },
+  "validation": {
+    "customer_name": {
+      "required": "গ্রাহকের নাম আবশ্যক"
+    },
+    "customer_phone": {
+      "required": "গ্রাহকের ফোন নম্বর আবশ্যক"
+    },
+    "items": {
+      "min": "কমপক্ষে একটি পণ্য যোগ করতে হবে"
+    }
+  }
+}

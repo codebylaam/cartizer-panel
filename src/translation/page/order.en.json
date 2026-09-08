@@ -1,0 +1,16 @@
+{
+  "title": "Orders",
+  "add": "Add Order",
+  "table": {
+    "header": {
+      "customer_name": "Customer Name",
+      "customer_phone": "Customer Phone",
+      "payment_status": "Payment Status",
+      "payment_method": "Payment Method",
+      "delivery_charge": "Delivery Charge",
+      "discount": "Discount",
+      "items_count": "Items",
+      "created_at": "Created At"
+    }
+  }
+}

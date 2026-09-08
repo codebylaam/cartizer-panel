@@ -1,0 +1,108 @@
+{
+  "heading": "Create Order",
+  "submit": "Create Order",
+  "form": {
+    "customer": "Customer Information",
+    "customer_name": {
+      "label": "Customer Name",
+      "placeholder": "e.g. Guest Customer",
+      "description": "Full name of the customer"
+    },
+    "customer_phone": {
+      "label": "Customer Phone",
+      "placeholder": "+8801912345670",
+      "description": "Contact phone number of the customer"
+    },
+    "items": {
+      "heading": "Products",
+      "select_product_btn": "Select Product",
+      "empty_text": "No products added to order yet.",
+      "add_item": "Add Item",
+      "remove_item": "Remove",
+      "search_placeholder": "Search products...",
+      "browse": "Browse",
+      "none": "None",
+      "added": "Added",
+      "select": "Select",
+      "stock": "Stock",
+      "in_stock": "{{count}} in stock",
+      "standard_variant": "Standard",
+      "header": {
+        "product": "Products",
+        "quantity": "Quantity",
+        "total": "Total"
+      },
+      "select_product": {
+        "modal_title": "Select Products",
+        "modal_description": "Search products and select variants to add to order",
+        "search_placeholder": "Search products by name or SKU..."
+      },
+      "product_name": {
+        "label": "Product Name",
+        "placeholder": "Custom Tailored Jacket"
+      },
+      "sku": {
+        "label": "SKU",
+        "placeholder": "CUSTOM-JKT-01"
+      },
+      "unit_price": {
+        "label": "Unit Price (BDT)",
+        "placeholder": "0.00"
+      },
+      "quantity": {
+        "label": "Quantity",
+        "placeholder": "1"
+      }
+    },
+    "payment": "Payment & Delivery",
+    "payment_status": {
+      "label": "Payment Status",
+      "description": "Select current payment status",
+      "options": {
+        "paid": "Paid",
+        "unpaid": "Unpaid",
+        "pending": "Pending",
+        "partial": "Partial",
+        "refunded": "Refunded"
+      }
+    },
+    "payment_method": {
+      "label": "Payment Method",
+      "description": "Select method of payment",
+      "options": {
+        "bkash": "bKash",
+        "nagad": "Nagad",
+        "rocket": "Rocket",
+        "cash_on_delivery": "Cash on Delivery",
+        "bank_transfer": "Bank Transfer",
+        "card": "Card"
+      }
+    },
+    "delivery_charge": {
+      "label": "Delivery Charge (BDT)",
+      "description": "Delivery fee amount"
+    },
+    "discount": {
+      "label": "Discount (BDT)",
+      "description": "Discount amount to apply"
+    },
+    "summary": {
+      "heading": "Order Summary",
+      "subtotal": "Subtotal",
+      "discount": "Discount",
+      "delivery_charge": "Delivery Charge",
+      "total": "Grand Total"
+    }
+  },
+  "validation": {
+    "customer_name": {
+      "required": "Customer name is required"
+    },
+    "customer_phone": {
+      "required": "Customer phone is required"
+    },
+    "items": {
+      "min": "At least one order item is required"
+    }
+  }
+}

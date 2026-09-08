@@ -1,0 +1,16 @@
+{
+  "title": "অর্ডারসমূহ",
+  "add": "অর্ডার তৈরি করুন",
+  "table": {
+    "header": {
+      "customer_name": "গ্রাহকের নাম",
+      "customer_phone": "ফোন নম্বর",
+      "payment_status": "পেমেন্ট স্ট্যাটাস",
+      "payment_method": "পেমেন্ট পদ্ধতি",
+      "delivery_charge": "ডেলিভারি চার্জ",
+      "discount": "ডিসকাউন্ট",
+      "items_count": "পণ্যের সংখ্যা",
+      "created_at": "তৈরির তারিখ"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "create_success": "Created successfully",
+  "update_success": "Updated successfully",
+  "delete_success": "Deleted successfully",
+  "fetch_success": "Fetched successfully",
+  "success": "Operation completed successfully",
+  "unhandled_error": "An unexpected error occurred",
+
+  "product_created_successfully": "Product created successfully",
+  "product_create_success": "Product created successfully",
+  "product_update_successfully": "Product updated successfully",
+  "product_updated_successfully": "Product updated successfully",
+  "product_delete_successfully": "Product deleted successfully",
+  "product_deleted_successfully": "Product deleted successfully",
+  "product_fetched_successfully": "Product fetched successfully",
+  "products_fetched_successfully": "Products fetched successfully",
+
+  "order_created_successfully": "Order created successfully",
+  "order_create_success": "Order created successfully",
+  "order_update_successfully": "Order updated successfully",
+  "order_updated_successfully": "Order updated successfully",
+  "order_delete_successfully": "Order deleted successfully",
+  "order_deleted_successfully": "Order deleted successfully",
+  "order_fetched_successfully": "Order fetched successfully",
+  "orders_fetched_successfully": "Orders fetched successfully",
+
+  "media_created_successfully": "Media created successfully",
+  "media_uploaded_successfully": "Media uploaded successfully",
+  "media_signed_url_generated_successfully": "Signed URLs generated successfully",
+  "media_status_updated_successfully": "Media status updated successfully",
+  "media_delete_successfully": "Media deleted successfully",
+  "media_deleted_successfully": "Media deleted successfully",
+  "media_fetched_successfully": "Media files fetched successfully",
+
+  "category_created_successfully": "Category created successfully",
+  "category_update_successfully": "Category updated successfully",
+  "category_updated_successfully": "Category updated successfully",
+  "category_delete_successfully": "Category deleted successfully",
+  "category_deleted_successfully": "Category deleted successfully",
+  "category_fetched_successfully": "Category fetched successfully",
+  "categories_fetched_successfully": "Categories fetched successfully"
+}

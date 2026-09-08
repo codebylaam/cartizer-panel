@@ -1,0 +1,42 @@
+{
+  "create_success": "সফলভাবে তৈরি হয়েছে",
+  "update_success": "সফলভাবে আপডেট হয়েছে",
+  "delete_success": "সফলভাবে মুছে ফেলা হয়েছে",
+  "fetch_success": "সফলভাবে আনা হয়েছে",
+  "success": "সফলভাবে সম্পন্ন হয়েছে",
+  "unhandled_error": "একটি অনাকাঙ্ক্ষিত ত্রুটি ঘটেছে",
+
+  "product_created_successfully": "পণ্য সফলভাবে তৈরি হয়েছে",
+  "product_create_success": "পণ্য সফলভাবে তৈরি হয়েছে",
+  "product_update_successfully": "পণ্য সফলভাবে আপডেট হয়েছে",
+  "product_updated_successfully": "পণ্য সফলভাবে আপডেট হয়েছে",
+  "product_delete_successfully": "পণ্য সফলভাবে মুছে ফেলা হয়েছে",
+  "product_deleted_successfully": "পণ্য সফলভাবে মুছে ফেলা হয়েছে",
+  "product_fetched_successfully": "পণ্য সফলভাবে লোড হয়েছে",
+  "products_fetched_successfully": "পণ্যসমূহ সফলভাবে লোড হয়েছে",
+
+  "order_created_successfully": "অর্ডার সফলভাবে তৈরি হয়েছে",
+  "order_create_success": "অর্ডার সফলভাবে তৈরি হয়েছে",
+  "order_update_successfully": "অর্ডার সফলভাবে আপডেট হয়েছে",
+  "order_updated_successfully": "অর্ডার সফলভাবে আপডেট হয়েছে",
+  "order_delete_successfully": "অর্ডার সফলভাবে মুছে ফেলা হয়েছে",
+  "order_deleted_successfully": "অর্ডার সফলভাবে মুছে ফেলা হয়েছে",
+  "order_fetched_successfully": "অর্ডার সফলভাবে লোড হয়েছে",
+  "orders_fetched_successfully": "অর্ডারসমূহ সফলভাবে লোড হয়েছে",
+
+  "media_created_successfully": "মিডিয়া সফলভাবে তৈরি হয়েছে",
+  "media_uploaded_successfully": "মিডিয়া ফাইল সফলভাবে আপলোড হয়েছে",
+  "media_signed_url_generated_successfully": "সাইনড URL সফলভাবে তৈরি হয়েছে",
+  "media_status_updated_successfully": "মিডিয়া স্টেটাস সফলভাবে আপডেট হয়েছে",
+  "media_delete_successfully": "মিডিয়া সফলভাবে মুছে ফেলা হয়েছে",
+  "media_deleted_successfully": "মিডিয়া সফলভাবে মুছে ফেলা হয়েছে",
+  "media_fetched_successfully": "মিডিয়া ফাইলসমূহ সফলভাবে লোড হয়েছে",
+
+  "category_created_successfully": "ক্যাটাগরি সফলভাবে তৈরি হয়েছে",
+  "category_update_successfully": "ক্যাটাগরি সফলভাবে আপডেট হয়েছে",
+  "category_updated_successfully": "ক্যাটাগরি সফলভাবে আপডেট হয়েছে",
+  "category_delete_successfully": "ক্যাটাগরি সফলভাবে মুছে ফেলা হয়েছে",
+  "category_deleted_successfully": "ক্যাটাগরি সফলভাবে মুছে ফেলা হয়েছে",
+  "category_fetched_successfully": "ক্যাটাগরি সফলভাবে লোড হয়েছে",
+  "categories_fetched_successfully": "ক্যাটাগরি সমুহ সফলভাবে লোড হয়েছে"
+}

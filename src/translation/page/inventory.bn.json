@@ -1,0 +1,18 @@
+{
+  "title": "ইনভেন্টরি",
+  "add": "স্টক যোগ করুন",
+  "table": {
+    "header": {
+      "name": "পণ্যের নাম",
+      "sku": "SKU",
+      "price": "মূল্য",
+      "stock_quantity": "স্টকের পরিমাণ",
+      "status": "স্টকের অবস্থা"
+    }
+  },
+  "status": {
+    "in_stock": "স্টকে আছে",
+    "low_stock": "কম স্টক",
+    "out_of_stock": "স্টক শেষ"
+  }
+}

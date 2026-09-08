@@ -1,0 +1,148 @@
+{
+  "heading": "Create Product",
+  "submit": "Submit",
+  "form": {
+    "basic": "Basic Information",
+    "pricing": "Pricing",
+    "inventory": "Inventory",
+    "media": "Media",
+    "specification": "Specification",
+    "add_more": "Add More",
+
+    "name": {
+      "label": "Product Name",
+      "placeholder": "Jamdani Sharee",
+      "description": "The name should be concise and descriptive. It will help customers easily identify the product"
+    },
+    "slug": {
+      "label": "Product Slug",
+      "placeholder": "jamdani-sharee",
+      "description": "The slug should be concise"
+    },
+    "description": {
+      "label": "Description",
+      "placeholder": "Jamdani Sharee Description",
+      "description": "Include the features, benefits, and usage instructions of the product in the description. This will provide customers with more information about the product"
+    },
+    "short_description": {
+      "label": "Short Description",
+      "placeholder": "Jamdani Sharee Short Description",
+      "description": "Include the main features and benefits of the product in the short description. This will help customers quickly understand the product"
+    },
+
+    "images": {
+      "label": "Images",
+      "description": "Upload images of the product. Include multiple images to showcase the product from different angles"
+    },
+
+    "price": {
+      "label": "Price",
+      "description": "Price should be competitive"
+    },
+    "regular_price": {
+      "label": "Regular Price",
+      "description": "Regular price should be competitive"
+    },
+    "purchase_price": {
+      "label": "Purchase Price",
+      "description": "Purchase price of the product"
+    },
+
+    "serial": {
+      "label": "Serial",
+      "description": "Serial number of the product"
+    },
+    "sku": {
+      "label": "SKU",
+      "description": "SKU of the product"
+    },
+    "stock_quantity": {
+      "label": "Stock Quantity",
+      "description": "Stock quantity of the product"
+    },
+
+    "specifications": {
+      "label": "Specifications",
+      "description": "Give the specifications of the product",
+      "key": {
+        "label": "Specification Key",
+        "description": "Give the key of the specification"
+      },
+      "value": {
+        "label": "Specification Value",
+        "description": "Give the value of the specification"
+      }
+    },
+
+    "status": {
+      "label": "Active Status",
+      "description": "Indicate whether the product is currently active and available for purchase",
+      "options": {
+        "active": "Active",
+        "inactive": "Inactive"
+      }
+    },
+
+    "categories": {
+      "label": "Categories",
+      "description": "Select categories for the product",
+      "placeholder": "Select categories",
+      "emptyMessage": "No categories found."
+    },
+    "variants": {
+      "title": "Product Variants",
+      "description": "Define product variant groups (e.g. Size, Color) and options with custom price adjustments and stock.",
+      "add_variant": "Add Variant",
+      "no_variants": "No variants added yet. Click 'Add Variant' to create product variants.",
+      "variant_title": {
+        "label": "Variant Title",
+        "placeholder": "e.g. Color, Size, Storage"
+      },
+      "is_mandatory": {
+        "label": "Mandatory Variant",
+        "description": "Customer must choose an option for this variant"
+      },
+      "options": {
+        "title": "Variant Options",
+        "add_option": "Add Option",
+        "no_options": "No options added yet.",
+        "attribute": {
+          "label": "Attribute Value",
+          "placeholder": "e.g. Red, XL, 128GB"
+        },
+        "extra_price": {
+          "label": "Extra Price",
+          "placeholder": "0.00"
+        },
+        "stock_quantity": {
+          "label": "Quantity",
+          "placeholder": "0"
+        },
+        "image": {
+          "label": "Option Image",
+          "placeholder": "Select product image"
+        }
+      }
+    }
+  },
+  "validation": {
+    "name": {
+      "required": "Product name is required.",
+      "min": "Product name must be at least 10 characters long",
+      "max": "Product name cannot exceed 100 characters"
+    },
+    "slug": {
+      "required": "Slug is required.",
+      "min": "Slug must be at least 10 characters long",
+      "max": "Slug cannot exceed 100 characters"
+    },
+    "description": {
+      "required": "Product description is required.",
+      "min": "Product description must be at least 10 characters long"
+    },
+    "short_description": {
+      "required": "Short description is required.",
+      "min": "Short description must be at least 10 characters long"
+    }
+  }
+}

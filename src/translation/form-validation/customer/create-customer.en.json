@@ -1,0 +1,36 @@
+{
+  "heading": "Create Customer",
+  "description": "Enter customer information to add them to your store.",
+  "submit": "Create Customer",
+  "form": {
+    "name": {
+      "label": "Full Name",
+      "placeholder": "e.g. John Doe"
+    },
+    "email": {
+      "label": "Email Address",
+      "placeholder": "e.g. john@example.com"
+    },
+    "phone": {
+      "label": "Phone Number",
+      "placeholder": "+8801912345678"
+    },
+    "password": {
+      "label": "Password"
+    }
+  },
+  "validation": {
+    "name": {
+      "required": "Name is required",
+      "min": "Name must be at least 2 characters"
+    },
+    "email": {
+      "required": "Email is required",
+      "invalid": "Invalid email address"
+    },
+    "password": {
+      "required": "Password is required",
+      "min": "Password must be at least 6 characters"
+    }
+  }
+}

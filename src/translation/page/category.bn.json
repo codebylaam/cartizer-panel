@@ -1,0 +1,12 @@
+{
+  "title": "ক্যাটেগরি",
+  "description": "বিবরণ",
+  "table": {
+    "header": {
+      "name": "নাম",
+      "slug": "স্লাগ",
+      "description": "বিবরণ",
+      "created_at": "তৈরির সময়"
+    }
+  }
+}

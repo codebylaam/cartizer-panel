@@ -1,0 +1,12 @@
+{
+  "title": "Categories",
+  "description": "Categories",
+  "table": {
+    "header": {
+      "name": "Name",
+      "slug": "Slug",
+      "description": "Description",
+      "created_at": "Created At"
+    }
+  }
+}

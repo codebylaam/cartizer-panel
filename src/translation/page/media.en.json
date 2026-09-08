@@ -1,0 +1,13 @@
+{
+  "title": "Media",
+  "description": "Description",
+  "table": {
+    "header": {
+      "name": "Name",
+      "media": "Media",
+      "size": "Size",
+      "mime_type": "Type",
+      "created_at": "Created at"
+    }
+  }
+}

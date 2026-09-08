@@ -1,0 +1,15 @@
+{
+  "title": "প্রোডাক্ট",
+  "description": "বর্ণনা",
+  "table": {
+    "header": {
+      "title": "টাইটেল",
+      "price": "প্রাইস",
+      "category": "ক্যাটাগরি",
+      "serial": "সিরিয়াল",
+      "stock_quantity": "স্টক পরিমাণ",
+      "sku": "এসকেইউ",
+      "created_at": "তৈরির সময়"
+    }
+  }
+}

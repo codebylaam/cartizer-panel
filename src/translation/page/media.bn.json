@@ -1,0 +1,13 @@
+{
+  "title": "মিডিয়া",
+  "description": "বিবরণ",
+  "table": {
+    "header": {
+      "name": "নাম",
+      "media": "মিডিয়া",
+      "size": "সাইজ",
+      "mime_type": "মিডিয়া টাইপ",
+      "created_at": "তৈরির সময়"
+    }
+  }
+}

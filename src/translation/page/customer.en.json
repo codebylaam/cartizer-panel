@@ -1,0 +1,12 @@
+{
+  "title": "Customers",
+  "add": "Add Customer",
+  "table": {
+    "header": {
+      "name": "Customer Name",
+      "email": "Email",
+      "phone": "Phone",
+      "created_at": "Created At"
+    }
+  }
+}

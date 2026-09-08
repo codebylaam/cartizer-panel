@@ -1,0 +1,91 @@
+{
+  "form_global": {
+    "file_upload": {
+      "upload_attachments": "আপলোড অ্যাটাচমেন্টস",
+      "drag_and_drop_files_here": "ফাইল টেনে এনে এখানে রাখুন",
+      "click_to_upload": "আপলোড করতে ক্লিক করুন",
+      "or_drag_and_drop": "অথবা টেনে এনে এখানে রাখুন",
+      "max_file_size": "সর্বোচ্চ ফাইল সাইজ: {{0}}",
+      "maximum_file_size": "সর্বোচ্চ ফাইল সাইজ: {{0}}",
+      "allowed_formats": "ফাইল ফরম্যাট: {{formats}}",
+      "upload_images_or_documents": "ছবি বা ডকুমেন্ট আপলোড করুন",
+      "image/*": "ছবি",
+      "file_exceeds_max_size": "ফাইল \"{{name}}\" এর সাইজ সর্বোচ্চ {{maxSizeMB}}MB সীমা অতিক্রম করেছে।",
+      "upload_failed": "আপলোড ব্যর্থ হয়েছে",
+      "uploading": "আপলোড হচ্ছে ({{progress}}%)",
+      "remove_file": "ফাইল মুছুন",
+      "cancel_upload": "আপলোড বাতিল করুন"
+    },
+    "select": {
+      "no_options": "কোন অপশন নেই",
+      "no_results_found": "কোনো ফলাফল পাওয়া যায়নি"
+    }
+  },
+  "table_global": {
+    "actions": "অ্যাকশন",
+    "edit": "এডিট",
+    "delete": "ডিলিট",
+    "view": "ভিউ",
+    "back": "ব্যাক",
+    "next": "নেক্সট",
+    "previous": "প্রিভিয়াস",
+    "submit": "সাবমিট",
+    "cancel": "ক্যানসেল",
+    "close": "ক্লোজ",
+    "save": "সেভ",
+    "create": "তৈরি করুন",
+    "update": "আপডেট",
+    "delete_confirmation": "আপনি কি সত্যিই এটি ডিলিট করতে চান?",
+    "loading": "লোডিং...",
+    "no_data": "কোনো ডেটা নেই",
+    "no_items_found": "কোনো আইটেম পাওয়া যায়নি"
+  },
+  "header_menu": {
+    "dashboard": "ড্যাশবোর্ড",
+    "settings": "সেটিংস",
+    "profile": "প্রোফাইল",
+    "logout": "লগআউট"
+  },
+  "admin_sidebar": {
+    "dashboard": "ড্যাশবোর্ড",
+    "settings": "সেটিংস",
+    "products": "প্রোডাক্টস",
+    "categories": "ক্যাটাগরিস",
+    "brands": "ব্র্যান্ডস",
+    "orders": "অর্ডারস",
+    "customers": "কাস্টমারস",
+    "shipping_methods": "শিপিং মেথডস",
+    "payment_methods": "পেমেন্ট মেথডস",
+    "reports": "রিপোর্ টস",
+    "sliders": "স্লাইডারস",
+    "flash_sales": "ফ্ল্যাশ সেলস",
+    "coupons": "কুপনস",
+    "blog": "ব্লগ",
+    "pages": "পেজেস",
+    "faqs": "ফেক্স",
+    "appearance": "অ্যাপিয়ারেন্স",
+    "marketing": "মার্কেটিং",
+    "help": "হেল্প"
+  },
+  "error": {
+    "something_went_wrong": "কিছু একটা ভুল হয়েছে",
+    "page_not_found": "পেজ খুঁজে পাওয়া যায়নি",
+    "access_denied": "অ্যাক্সেস ডিনাইড",
+    "invalid_credentials": "অবৈধ ক্রেডেনশিয়াল",
+    "server_error": "সার্ভার এরর"
+  },
+  "pagination": {
+    "showing": "দেখাচ্ছে",
+    "to": "থেকে",
+    "of": "মোট",
+    "items": "আইটেম"
+  },
+  "general": {
+    "app_name": "অ্যাপ নেম",
+    "english": "ইংলিশ",
+    "bengali": "বাংলা",
+    "create_new": "তৈরি করুন",
+    "search": "সার্চ...",
+    "search_results": "সার্চ ফলাফল"
+  }
+}
