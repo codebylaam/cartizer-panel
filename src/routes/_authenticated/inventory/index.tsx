@@ -1,51 +1,93 @@
 import { useMemo } from "react"
 import { useTranslation } from "react-i18next"
 import { createFileRoute } from "@tanstack/react-router"
+import { Button, Center, Text } from "@astryxdesign/core"
+import { VStack } from "@astryxdesign/core/VStack"
 
-import { filterSchema } from "@/schemas/filter"
 import Module from "@/components/module/module"
+import { ProductQueryKeys } from "@/constants/query-keys"
 import generateInventoryListColumns from "@/pages/inventory/columns"
-import { Button, Text } from "@astryxdesign/core"
+import { filterSchema } from "@/schemas/filter"
+import type { InventoryT } from "@/schemas/inventory"
+import reactQueryOptions from "@/utils/query-options"
 
 export const Route = createFileRoute("/_authenticated/inventory/")({
   component: RouteComponent,
   validateSearch: filterSchema,
   loaderDeps: ({ search }) => search,
-  loader: ({ deps }) => {},
-  errorComponent: ({ error, reset }) => {
-    return (
-      <div>
-        <Text>{error.message}</Text>
-        <Button label="reset" onClick={reset}>
-          Reset
-        </Button>
-      </div>
+  loader: async ({ deps, context }) => {
+    const response = await context.queryClient.query(
+      reactQueryOptions<InventoryT, true>({
+        url: "/product/list",
+        queryKey: ProductQueryKeys.list(deps),
+        config: { params: deps },
+      }),
     )
+    return response
   },
+  pendingComponent: PendingComponent,
+  errorComponent: ErrorComponent,
 })
+
+function PendingComponent() {
+  const { t } = useTranslation()
+  return (
+    <Center axis="both" style={{ minHeight: "100%" }}>
+      <Text type="body" color="secondary">
+        {t("table_global.loading")}
+      </Text>
+    </Center>
+  )
+}
+
+function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+  const { t } = useTranslation()
+  return (
+    <Center axis="both" style={{ minHeight: "100%" }}>
+      <VStack gap={3} hAlign="center">
+        <Text type="body" color="secondary">
+          {error.message}
+        </Text>
+        <Button label={t("table_global.retry")} onClick={reset} />
+      </VStack>
+    </Center>
+  )
+}
 
 function RouteComponent() {
   const { t } = useTranslation()
   const data = Route.useLoaderData()
   const navigate = Route.useNavigate()
+  const { sort_by, sort_order } = Route.useSearch()
   const columns = useMemo(() => generateInventoryListColumns(t), [t])
 
   return (
     <Module navigate={navigate}>
       <Module.Header>
-        <Module.Title>{t("page.inventory.title", "Inventory")}</Module.Title>
-        <Button
-          label={t("page.inventory.add")}
-          onClick={() =>
-            navigate({ to: "/products/$id", params: { id: "create" } })
-          }
-        >
-          {t("page.inventory.add", "Add Stock")}
-        </Button>
+        <Module.Title>{t("page.inventory.title")}</Module.Title>
       </Module.Header>
       <Module.Content>
         <Module.Filter />
-        <Module.DataTable response={data} columns={columns} />
+        <Module.DataTable
+          response={data}
+          columns={columns}
+          sortBy={sort_by}
+          sortOrder={sort_order}
+          onSortChange={(nextSortBy, nextSortOrder) =>
+            navigate({
+              to: ".",
+              search: (prev) => ({
+                ...prev,
+                sort_by: nextSortBy,
+                sort_order: nextSortOrder,
+                page: 1,
+              }),
+            })
+          }
+          emptyTitle={t("page.inventory.table.empty.title")}
+          emptyDescription={t("page.inventory.table.empty.description")}
+          hasHover
+        />
       </Module.Content>
     </Module>
   )

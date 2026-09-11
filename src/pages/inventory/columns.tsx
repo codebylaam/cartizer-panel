@@ -1,91 +1,77 @@
-import { Link } from '@tanstack/react-router'
-import { createColumnHelper } from '@tanstack/react-table'
-import type { TFunction } from 'i18next'
-import type { ColumnDef } from '@tanstack/react-table'
+import { Link } from "@tanstack/react-router"
+import { pixel, proportional } from "@astryxdesign/core/Table"
+import { Text } from "@astryxdesign/core/Text"
+import { Token } from "@astryxdesign/core/Token"
+import type { TableColumn } from "@astryxdesign/core/Table"
+import type { TokenColor } from "@astryxdesign/core/Token"
+import type { TFunction } from "i18next"
 
-import type { InventoryT } from '@/schemas/inventory'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Badge } from '@/components/ui/badge'
+import type { InventoryT } from "@/schemas/inventory"
 
-const columnHelper = createColumnHelper<InventoryT>()
+const LOW_STOCK_THRESHOLD = 5
+
+function getStockStatus(stockQuantity: number) {
+  if (stockQuantity <= 0) {
+    return { key: "out_of_stock", color: "red" as TokenColor }
+  }
+  if (stockQuantity < LOW_STOCK_THRESHOLD) {
+    return { key: "low_stock", color: "yellow" as TokenColor }
+  }
+  return { key: "in_stock", color: "green" as TokenColor }
+}
 
 function generateInventoryListColumns(
   t: TFunction,
-): Array<ColumnDef<InventoryT, any>> {
+): Array<TableColumn<InventoryT>> {
   return [
-    columnHelper.display({
-      id: 'select',
-      header: ({ table }) => (
-        <Checkbox
-          indeterminate={table.getIsSomeRowsSelected()}
-          checked={table.getIsAllRowsSelected()}
-          onCheckedChange={(boolean) =>
-            table.getToggleAllRowsSelectedHandler()({
-              target: { checked: boolean },
-            })
-          }
-        />
-      ),
-      cell: ({ row }) => (
-        <Checkbox
-          checked={row.getIsSelected()}
-          onCheckedChange={(boolean) => row.toggleSelected(boolean)}
-        />
-      ),
-    }),
-    columnHelper.accessor('name', {
-      header: t('page.inventory.table.header.name', 'Product Name'),
-      cell: (info) => (
-        <Link
-          className="underline font-medium"
-          to={'/products/$id'}
-          params={{ id: info.row.original.id }}
-        >
-          {info.getValue()}
+    {
+      key: "name",
+      header: t("page.inventory.table.header.name"),
+      width: proportional(2),
+      sortable: { sortKey: "title" },
+      renderCell: (item) => (
+        <Link to="/products/$id" params={{ id: item.id }}>
+          <Text color="accent">{item.name}</Text>
         </Link>
       ),
-    }),
-    columnHelper.accessor('sku', {
-      header: t('page.inventory.table.header.sku', 'SKU'),
-      cell: (info) => info.getValue() || '-',
-    }),
-    columnHelper.accessor('price', {
-      header: t('page.inventory.table.header.price', 'Price'),
-      cell: (info) => {
-        const val = Number(info.getValue()) || 0
-        return `৳${val.toFixed(2)}`
-      },
-    }),
-    columnHelper.accessor('stock_quantity', {
-      header: t('page.inventory.table.header.stock_quantity', 'Stock Quantity'),
-      cell: (info) => info.getValue(),
-    }),
-    columnHelper.display({
-      id: 'status',
-      header: t('page.inventory.table.header.status', 'Stock Status'),
-      cell: ({ row }) => {
-        const qty = row.original.stock_quantity
-        if (qty === 0) {
-          return (
-            <Badge variant="destructive">
-              {t('page.inventory.status.out_of_stock', 'Out of Stock')}
-            </Badge>
-          )
-        }
-        if (qty < 5) {
-          return (
-            <Badge variant="outline">
-              {t('page.inventory.status.low_stock', 'Low Stock')}
-            </Badge>
-          )
-        }
+    },
+    {
+      key: "sku",
+      header: t("page.inventory.table.header.sku"),
+      width: pixel(140),
+      renderCell: (item) => item.sku || "-",
+    },
+    {
+      key: "price",
+      header: t("page.inventory.table.header.price"),
+      width: proportional(1),
+      align: "end",
+      sortable: true,
+      renderCell: (item) =>
+        t("{{value, currency(BDT)}}", { value: Number(item.price) || 0 }),
+    },
+    {
+      key: "stock_quantity",
+      header: t("page.inventory.table.header.stock_quantity"),
+      width: pixel(150),
+      align: "end",
+      renderCell: (item) => t("{{value, number}}", { value: item.stock_quantity }),
+    },
+    {
+      key: "status",
+      header: t("page.inventory.table.header.status"),
+      width: pixel(140),
+      renderCell: (item) => {
+        const status = getStockStatus(item.stock_quantity)
         return (
-          <Badge variant="default">
-            {t('page.inventory.status.in_stock', 'In Stock')}
-          </Badge>
+          <Token
+            size="sm"
+            color={status.color}
+            label={t(`page.inventory.status.${status.key}`)}
+          />
         )
       },
-    }),
+    },
   ]
 }
 

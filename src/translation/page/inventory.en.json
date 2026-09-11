@@ -8,6 +8,10 @@
       "price": "Price",
       "stock_quantity": "Stock Quantity",
       "status": "Stock Status"
+    },
+    "empty": {
+      "title": "No inventory found",
+      "description": "Try adjusting your search or filters."
     }
   },
   "status": {
