@@ -1,100 +1,108 @@
-import { Link } from '@tanstack/react-router'
-import { createColumnHelper } from '@tanstack/react-table'
-import type { ColumnDef } from '@tanstack/react-table'
-import type { TFunction } from 'i18next'
+import { pixel, proportional } from "@astryxdesign/core/Table"
+import { Token } from "@astryxdesign/core/Token"
+import type { TableColumn } from "@astryxdesign/core/Table"
+import type { TokenColor } from "@astryxdesign/core/Token"
+import type { TFunction } from "i18next"
 
-import type { OrderT } from '@/schemas/order'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Badge } from '@/components/ui/badge'
+import {
+  PAYMENT_STATUS,
+  getPaymentMethodOptions,
+  getPaymentStatusOptions,
+} from "@/pages/orders/create-order/constant"
+import type { OrderT } from "@/schemas/order"
 
-const columnHelper = createColumnHelper<OrderT>()
+const PAYMENT_STATUS_COLOR: Record<string, TokenColor> = {
+  [PAYMENT_STATUS.PAID]: "green",
+  [PAYMENT_STATUS.UNPAID]: "red",
+  [PAYMENT_STATUS.PENDING]: "yellow",
+  [PAYMENT_STATUS.PARTIAL]: "blue",
+  [PAYMENT_STATUS.REFUNDED]: "gray",
+}
 
-function generateOrderListColumns(t: TFunction): Array<ColumnDef<OrderT, any>> {
+function generateOrderListColumns(t: TFunction): Array<TableColumn<OrderT>> {
+  const paymentStatusLabels = new Map(
+    getPaymentStatusOptions(t).map((option) => [option.value, option.label]),
+  )
+  const paymentMethodLabels = new Map(
+    getPaymentMethodOptions(t).map((option) => [option.value, option.label]),
+  )
+
   return [
-    columnHelper.display({
-      id: 'select',
-      header: ({ table }) => (
-        <Checkbox
-          indeterminate={table.getIsSomeRowsSelected()}
-          checked={table.getIsAllRowsSelected()}
-          onCheckedChange={(boolean) =>
-            table.getToggleAllRowsSelectedHandler()({
-              target: { checked: boolean },
-            })
+    {
+      key: "customer_name",
+      header: t("page.order.table.header.customer_name"),
+      width: proportional(2),
+      renderCell: (order) => order.customer_name,
+    },
+    {
+      key: "customer_phone",
+      header: t("page.order.table.header.customer_phone"),
+      width: pixel(160),
+      renderCell: (order) => order.customer_phone,
+    },
+    {
+      key: "payment_status",
+      header: t("page.order.table.header.payment_status"),
+      width: pixel(140),
+      renderCell: (order) => (
+        <Token
+          size="sm"
+          color={PAYMENT_STATUS_COLOR[order.payment_status] ?? "default"}
+          label={
+            paymentStatusLabels.get(order.payment_status) ??
+            order.payment_status
           }
         />
       ),
-      cell: ({ row }) => (
-        <Checkbox
-          checked={row.getIsSelected()}
-          onCheckedChange={(boolean) => row.toggleSelected(boolean)}
-        />
-      ),
-    }),
-    columnHelper.accessor('customer_name', {
-      header: t('page.order.table.header.customer_name', 'Customer Name'),
-      cell: (info) => (
-        <Link className="underline font-medium" to={'/orders'}>
-          {info.getValue()}
-        </Link>
-      ),
-    }),
-    columnHelper.accessor('customer_phone', {
-      header: t('page.order.table.header.customer_phone', 'Customer Phone'),
-      cell: (info) => info.getValue(),
-    }),
-    columnHelper.accessor('payment_status', {
-      header: t('page.order.table.header.payment_status', 'Payment Status'),
-      cell: (info) => {
-        const status = info.getValue()
-        const variantMap: Record<
-          string,
-          'default' | 'secondary' | 'destructive' | 'outline'
-        > = {
-          PAID: 'default',
-          UNPAID: 'destructive',
-          PENDING: 'outline',
-          PARTIAL: 'secondary',
-          REFUNDED: 'destructive',
-        }
-
-        return <Badge variant={variantMap[status] || 'outline'}>{status}</Badge>
-      },
-    }),
-    columnHelper.accessor('payment_method', {
-      header: t('page.order.table.header.payment_method', 'Payment Method'),
-      cell: (info) => info.getValue(),
-    }),
-    columnHelper.accessor('delivery_charge', {
-      header: t('page.order.table.header.delivery_charge', 'Delivery Charge'),
-      cell: (info) => `৳${Number(info.getValue() || 0).toFixed(2)}`,
-    }),
-    columnHelper.accessor('discount', {
-      header: t('page.order.table.header.discount', 'Discount'),
-      cell: (info) => `৳${Number(info.getValue() || 0).toFixed(2)}`,
-    }),
-    columnHelper.display({
-      id: 'items_count',
-      header: t('page.order.table.header.items_count', 'Items'),
-      cell: (info) => info.row.original.items.length || 0,
-    }),
-    columnHelper.accessor('created_at', {
-      header: t('page.order.table.header.created_at', 'Created At'),
-      cell: (info) => {
-        const val = info.getValue()
-        if (!val) return '-'
-        return t('{{value, datetime}}', {
-          value: new Date(val),
-          formatParams: {
-            value: {
-              year: 'numeric',
-              month: 'short',
-              day: 'numeric',
-            },
-          },
-        })
-      },
-    }),
+    },
+    {
+      key: "payment_method",
+      header: t("page.order.table.header.payment_method"),
+      width: proportional(1),
+      renderCell: (order) =>
+        paymentMethodLabels.get(order.payment_method) ?? order.payment_method,
+    },
+    {
+      key: "delivery_charge",
+      header: t("page.order.table.header.delivery_charge"),
+      width: pixel(150),
+      align: "end",
+      renderCell: (order) =>
+        t("{{value, currency(BDT)}}", { value: order.delivery_charge }),
+    },
+    {
+      key: "discount",
+      header: t("page.order.table.header.discount"),
+      width: pixel(130),
+      align: "end",
+      renderCell: (order) => t("{{value, currency(BDT)}}", { value: order.discount }),
+    },
+    {
+      key: "items",
+      header: t("page.order.table.header.items_count"),
+      width: pixel(100),
+      align: "end",
+      renderCell: (order) => t("{{value, number}}", { value: order.items.length }),
+    },
+    {
+      key: "created_at",
+      header: t("page.order.table.header.created_at"),
+      width: pixel(160),
+      sortable: true,
+      renderCell: (order) =>
+        order.created_at
+          ? t("{{value, datetime}}", {
+              value: new Date(order.created_at),
+              formatParams: {
+                value: {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                },
+              },
+            })
+          : "-",
+    },
   ]
 }
 
