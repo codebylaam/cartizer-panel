@@ -12,7 +12,7 @@ import {
 import type { TFunction } from 'i18next'
 
 export const getSidebarDashboardLinks = (t: TFunction) => {
-  return [{ name: t('sidebar.dashboard.title'), href: '/' }]
+  return [{ name: t('sidebar.dashboard.title'), href: '/dashboard' }]
 }
 
 export const getSidebarProductLinks = (t: TFunction) => {

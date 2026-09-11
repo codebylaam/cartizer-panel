@@ -20,18 +20,20 @@ export default function AppSideBarV2() {
             <NavIcon icon={<HouseIcon style={{ width: 16, height: 16 }} />} />
           }
           heading="App Shell"
-          headingHref="#"
+          headingHref="/dashboard"
         />
       }
     >
       <SideNavSection title="Main">
         {getSidebarLinks(t).map((sidebar) => {
           if (sidebar.links.length === 1) {
+            const [link] = sidebar.links
             return (
               <SideNavItem
                 key={sidebar.title}
                 label={sidebar.title}
                 icon={sidebar.icon}
+                href={link.href}
               />
             )
           }

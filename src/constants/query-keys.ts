@@ -25,8 +25,22 @@ export const OrderQueryKeys = {
   detail: (id: string) => [...OrderQueryKeys.details(), id] as const,
 }
 
+export const CustomerQueryKeys = {
+  all: ["customers"] as const,
+  lists: () => [...CustomerQueryKeys.all, "list"] as const,
+  list: (filters: Record<string, unknown>) =>
+    [...CustomerQueryKeys.lists(), { filters }] as const,
+  details: () => [...CustomerQueryKeys.all, "detail"] as const,
+  detail: (id: string) => [...CustomerQueryKeys.details(), id] as const,
+}
+
 export const MediaQueryKeys = {
-  lists: () => ["medias", "lists"] as const,
+  all: ["medias"] as const,
+  lists: () => [...MediaQueryKeys.all, "list"] as const,
+  list: (filters: Record<string, unknown>) =>
+    [...MediaQueryKeys.lists(), { filters }] as const,
+  details: () => [...MediaQueryKeys.all, "detail"] as const,
+  detail: (id: string) => [...MediaQueryKeys.details(), id] as const,
 }
 
 export const UserQueryKeys = {

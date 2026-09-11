@@ -37,6 +37,7 @@
     "update": "Update",
     "delete_confirmation": "Are you sure you want to delete this?",
     "loading": "Loading...",
+    "retry": "Try again",
     "no_data": "No data available",
     "no_items_found": "No items found"
   },

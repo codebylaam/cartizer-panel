@@ -38,5 +38,7 @@
   "category_delete_successfully": "ক্যাটাগরি সফলভাবে মুছে ফেলা হয়েছে",
   "category_deleted_successfully": "ক্যাটাগরি সফলভাবে মুছে ফেলা হয়েছে",
   "category_fetched_successfully": "ক্যাটাগরি সফলভাবে লোড হয়েছে",
-  "categories_fetched_successfully": "ক্যাটাগরি সমুহ সফলভাবে লোড হয়েছে"
+  "categories_fetched_successfully": "ক্যাটাগরি সমুহ সফলভাবে লোড হয়েছে",
+
+  "seller_logged_in_successfully": "সেলার সফলভাবে লগইন হয়েছে"
 }

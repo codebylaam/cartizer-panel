@@ -38,5 +38,7 @@
   "category_delete_successfully": "Category deleted successfully",
   "category_deleted_successfully": "Category deleted successfully",
   "category_fetched_successfully": "Category fetched successfully",
-  "categories_fetched_successfully": "Categories fetched successfully"
+  "categories_fetched_successfully": "Categories fetched successfully",
+
+  "seller_logged_in_successfully": "Seller logged in successfully"
 }

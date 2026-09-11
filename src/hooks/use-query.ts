@@ -57,16 +57,16 @@ export function useReactMutation<PayloadT, ResponseT>(
 ) {
   return useMutation({
     ...options,
-    mutationFn: () => {
+    mutationFn: (payload) => {
       switch (options.method) {
         case "POST":
-          return ApiService.post<ResponseT>({ url: options.url })
+          return ApiService.post<ResponseT>({ url: options.url, payload })
         case "PUT":
-          return ApiService.put<ResponseT>({ url: options.url })
+          return ApiService.put<ResponseT>({ url: options.url, payload })
         case "DELETE":
           return ApiService.delete<ResponseT>({ url: options.url })
         default:
-          return ApiService.post<ResponseT>({ url: options.url })
+          return ApiService.post<ResponseT>({ url: options.url, payload })
       }
     },
     onSuccess(data) {
