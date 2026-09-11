@@ -10,6 +10,10 @@
       "stock_quantity": "Stock Quantity",
       "sku": "SKU",
       "created_at": "Created At"
+    },
+    "empty": {
+      "title": "No products found",
+      "description": "Try adjusting your search or filters, or add a new product."
     }
   }
 }
