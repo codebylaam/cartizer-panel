@@ -19,6 +19,9 @@
       "empty_text": "এখনও কোনো পণ্য যোগ করা হয়নি।",
       "add_item": "নতুন পণ্য যোগ করুন",
       "remove_item": "মুছে ফেলুন",
+      "variants": "ভ্যারিয়েন্ট",
+      "select_variants": "ভ্যারিয়েন্ট নির্বাচন করুন",
+      "apply": "প্রয়োগ করুন",
       "search_placeholder": "পণ্য খুঁজুন...",
       "browse": "ব্রাউজ করুন",
       "none": "কোনটিই নয়",
@@ -35,7 +38,8 @@
       "select_product": {
         "modal_title": "পণ্য নির্বাচন করুন",
         "modal_description": "এই অর্ডারে যোগ করতে পণ্য খুঁজুন এবং ভ্যারিয়েন্ট নির্বাচন করুন",
-        "search_placeholder": "নাম বা SKU দিয়ে পণ্য খুঁজুন..."
+        "search_placeholder": "নাম বা SKU দিয়ে পণ্য খুঁজুন...",
+        "no_results": "কোনো পণ্য পাওয়া যায়নি"
       },
       "product_name": {
         "label": "পণ্যের নাম",

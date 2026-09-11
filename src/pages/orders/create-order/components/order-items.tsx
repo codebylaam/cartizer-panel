@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useTranslation } from "react-i18next"
 import { Text } from "@astryxdesign/core/Text"
 import { Card } from "@astryxdesign/core/Card"
@@ -16,7 +16,6 @@ import { computeItemUnitPrice } from "./order-items-utils"
 import type { ProductT } from "@/schemas/product"
 import type { OrderedVariantOptionPayload } from "@/schemas/order"
 import { withForm } from "@/components/generic-inputs/field-context"
-import { useReactQuery } from "@/hooks/use-query"
 
 type OrderItemsProps = {
   products: Array<ProductT>
@@ -25,26 +24,9 @@ type OrderItemsProps = {
 const OrderItems = withForm({
   ...createOrderFormOpt,
   props: {} as OrderItemsProps,
-  render: function ({ form, products: initialProducts }) {
+  render: function ({ form, products }) {
     const { t } = useTranslation()
-    const fetchProductQuery = useReactQuery({
-      url: "/api/products",
-      queryKey: ["products", "list"],
-      enabled: false,
-    })
-    const [productsList, setProductsList] =
-      useState<Array<ProductT>>(initialProducts)
-    const [isLoading, setIsLoading] = useState<boolean>(false)
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
-
-    useEffect(() => {
-      if (initialProducts.length > 0) {
-        setProductsList(initialProducts)
-      } else {
-        setIsLoading(true)
-        fetchProductQuery.refetch()
-      }
-    }, [initialProducts, fetchProductQuery])
 
     return (
       <Card>
@@ -108,50 +90,36 @@ const OrderItems = withForm({
                     }
                   }
 
-                  // Handle variant selection change right in the table row
-                  const handleVariantOptionChange = (
+                  // Commits every variant of an item in a single update. Applying
+                  // them one at a time would read a stale `field.state.value`
+                  // between calls and drop all but the last change.
+                  const handleVariantsChange = (
                     itemIndex: number,
                     product: ProductT,
-                    variantTitle: string,
-                    selectedAttribute: string,
+                    selections: Array<{ title: string; attribute: string }>,
                   ) => {
                     const currentItems = [...field.state.value]
                     const targetItem = { ...currentItems[itemIndex] }
 
-                    const itemVariants: Array<OrderedVariantOptionPayload> =
-                      targetItem.variants ? [...targetItem.variants] : []
+                    const itemVariants: Array<OrderedVariantOptionPayload> = []
 
-                    const productVariantDef = product.variants.find(
-                      (v) => v.title === variantTitle,
-                    )
-                    if (!productVariantDef) return
+                    product.variants.forEach((variant) => {
+                      const selection = selections.find(
+                        (entry) => entry.title === variant.title,
+                      )
+                      if (!selection || !selection.attribute) return
 
-                    const selectedOptDef = productVariantDef.options.find(
-                      (opt) => opt.attribute === selectedAttribute,
-                    )
+                      const selectedOptDef = variant.options.find(
+                        (opt) => opt.attribute === selection.attribute,
+                      )
+                      if (!selectedOptDef) return
 
-                    const existingVariantIdx = itemVariants.findIndex(
-                      (v) => v.title === variantTitle,
-                    )
-
-                    if (selectedOptDef) {
-                      const updatedOptionPayload: OrderedVariantOptionPayload =
-                        {
-                          title: variantTitle,
-                          attribute: selectedAttribute,
-                          extra_price: Number(selectedOptDef.extra_price || 0),
-                        }
-
-                      if (existingVariantIdx !== -1) {
-                        itemVariants[existingVariantIdx] = updatedOptionPayload
-                      } else {
-                        itemVariants.push(updatedOptionPayload)
-                      }
-                    } else {
-                      if (existingVariantIdx !== -1) {
-                        itemVariants.splice(existingVariantIdx, 1)
-                      }
-                    }
+                      itemVariants.push({
+                        title: variant.title,
+                        attribute: selection.attribute,
+                        extra_price: Number(selectedOptDef.extra_price || 0),
+                      })
+                    })
 
                     targetItem.variants =
                       itemVariants.length > 0 ? itemVariants : undefined
@@ -201,10 +169,7 @@ const OrderItems = withForm({
                             icon={<Icon icon={PlusIcon} size="sm" />}
                             onClick={() => setIsModalOpen(true)}
                           >
-                            {t(
-                              "create.order.form.items.select_product_btn",
-                              "Select Product",
-                            )}
+                            {t("create.order.form.items.select_product_btn")}
                           </Button>
                         </VStack>
                       ) : (
@@ -212,7 +177,7 @@ const OrderItems = withForm({
                           {field.state.value.map((item, index) => {
                             if (!item.product_name) return null
 
-                            const selectedProduct = productsList.find(
+                            const selectedProduct = products.find(
                               (p) =>
                                 p.id === item.product_id ||
                                 p.name === item.product_name,
@@ -224,9 +189,7 @@ const OrderItems = withForm({
                                 item={item}
                                 index={index}
                                 selectedProduct={selectedProduct}
-                                onVariantOptionChange={
-                                  handleVariantOptionChange
-                                }
+                                onVariantsChange={handleVariantsChange}
                                 onUpdateQuantity={handleUpdateQuantity}
                                 onRemoveItem={(idx) => field.removeValue(idx)}
                               />
@@ -235,7 +198,6 @@ const OrderItems = withForm({
                           <Button
                             label={t(
                               "create.order.form.items.select_product_btn",
-                              "Select Product",
                             )}
                             type="button"
                             variant="secondary"
@@ -243,10 +205,7 @@ const OrderItems = withForm({
                             icon={<Icon icon={PlusIcon} size="sm" />}
                             onClick={() => setIsModalOpen(true)}
                           >
-                            {t(
-                              "create.order.form.items.select_product_btn",
-                              "Select Product",
-                            )}
+                            {t("create.order.form.items.select_product_btn")}
                           </Button>
                         </VStack>
                       )}
@@ -254,8 +213,7 @@ const OrderItems = withForm({
                       <ProductSelectModal
                         isOpen={isModalOpen}
                         onClose={() => setIsModalOpen(false)}
-                        products={productsList}
-                        isLoading={isLoading}
+                        products={products}
                         itemsValue={field.state.value}
                         onSelectProduct={handleSelectProduct}
                       />

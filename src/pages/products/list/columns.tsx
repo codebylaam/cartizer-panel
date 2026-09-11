@@ -1,109 +1,72 @@
-import { Link } from '@tanstack/react-router'
-// import { CaretDownIcon, CaretUpIcon } from '@phosphor-icons/react/dist/ssr'
-import { createColumnHelper } from '@tanstack/react-table'
-import type { TFunction } from 'i18next'
+import { Link } from "@tanstack/react-router"
+import { pixel, proportional } from "@astryxdesign/core/Table"
+import { Text } from "@astryxdesign/core/Text"
+import type { TableColumn } from "@astryxdesign/core/Table"
+import type { TFunction } from "i18next"
 
-import type { ProductT } from '@/schemas/product'
-import { Checkbox } from '@/components/ui/checkbox'
+import type { ProductT } from "@/schemas/product"
 
-const columnHelper = createColumnHelper<ProductT>()
-
-function generateProductListColumns(t: TFunction) {
+function generateProductListColumns(
+  t: TFunction,
+): Array<TableColumn<ProductT>> {
   return [
-    columnHelper.display({
-      id: 'select',
-      header: ({ table }) => (
-        <Checkbox
-          indeterminate={table.getIsSomeRowsSelected()}
-          checked={table.getIsAllRowsSelected()}
-          onCheckedChange={(boolean) =>
-            table.getToggleAllRowsSelectedHandler()({
-              target: { checked: boolean },
-            })
-          }
-        />
-      ),
-      cell: ({ row }) => (
-        <Checkbox
-          checked={row.getIsSelected()}
-          onCheckedChange={(boolean) => row.toggleSelected(boolean)}
-        />
-      ),
-    }),
-    columnHelper.accessor('name', {
-      header: () => (
-        <button
-          type="button"
-          className="flex gap-1 items-center"
-          // onClick={() =>
-          //   navigate({
-          //     search: {
-          //       sort_order: sort_order === 'asc' ? 'desc' : 'asc',
-          //       sort_by: 'title',
-          //     },
-          //   })
-          // }
-        >
-          <span>{t('page.product.table.header.title')}</span>
-        </button>
-      ),
-      cell: (info) => (
-        <Link
-          className="underline"
-          to={'/products/$id'}
-          params={{ id: info.row.original.id }}
-        >
-          {info.getValue()}
+    {
+      key: "name",
+      header: t("page.product.table.header.title"),
+      width: proportional(2),
+      sortable: { sortKey: "title" },
+      renderCell: (product) => (
+        <Link to="/products/$id" params={{ id: product.id }}>
+          <Text color="accent">{product.name}</Text>
         </Link>
       ),
-    }),
-    columnHelper.display({
-      id: 'price',
-      header: () => (
-        <button
-          type="button"
-          className="flex gap-1 items-center"
-          // onClick={() =>
-          //   navigate({
-          //     search: {
-          //       sort_order: sort_order === 'asc' ? 'desc' : 'asc',
-          //       sort_by: 'price',
-          //     },
-          //   })
-          // }
-        >
-          <span>{t('page.product.table.header.price')}</span>
-        </button>
-      ),
-      cell: (info) =>
-        t('{{value, currency(BDT)}}', { value: info.row.original.price }),
-    }),
-    columnHelper.accessor('serial', {
-      header: t('page.product.table.header.serial'),
-      cell: (info) => info.getValue(),
-    }),
-    columnHelper.accessor('stock_quantity', {
-      header: t('page.product.table.header.stock_quantity'),
-      cell: (info) => t('{{value, number}}', { value: info.getValue() }),
-    }),
-    columnHelper.accessor('sku', {
-      header: t('page.product.table.header.sku'),
-      cell: (info) => info.getValue(),
-    }),
-    columnHelper.accessor('created_at', {
-      header: t('page.product.table.header.created_at'),
-      cell: (info) =>
-        t('{{value, datetime}}', {
-          value: new Date(info.getValue()),
+    },
+    {
+      key: "price",
+      header: t("page.product.table.header.price"),
+      width: proportional(1),
+      align: "end",
+      sortable: true,
+      renderCell: (product) =>
+        t("{{value, currency(BDT)}}", { value: product.price }),
+    },
+    {
+      key: "serial",
+      header: t("page.product.table.header.serial"),
+      width: pixel(140),
+      renderCell: (product) => product.serial,
+    },
+    {
+      key: "stock_quantity",
+      header: t("page.product.table.header.stock_quantity"),
+      width: pixel(150),
+      align: "end",
+      renderCell: (product) =>
+        t("{{value, number}}", { value: product.stock_quantity }),
+    },
+    {
+      key: "sku",
+      header: t("page.product.table.header.sku"),
+      width: pixel(140),
+      renderCell: (product) => product.sku,
+    },
+    {
+      key: "created_at",
+      header: t("page.product.table.header.created_at"),
+      width: pixel(160),
+      sortable: true,
+      renderCell: (product) =>
+        t("{{value, datetime}}", {
+          value: new Date(product.created_at),
           formatParams: {
             value: {
-              year: 'numeric',
-              month: 'short',
-              day: 'numeric',
+              year: "numeric",
+              month: "short",
+              day: "numeric",
             },
           },
         }),
-    }),
+    },
   ]
 }
 

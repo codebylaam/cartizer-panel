@@ -15,13 +15,13 @@ import { Route } from "@/routes/_authenticated/orders/create/index"
 import { useAppForm } from "@/components/generic-inputs/field-context"
 
 export default function CreateOrderPage() {
+  const toast = useToast()
   const { t } = useTranslation()
   const navigate = useNavigate()
-  const toast = useToast()
   const productsResponse = Route.useLoaderData()
   const products = productsResponse.data
   const createOrderMutation = useReactMutation({
-    url: "/orders",
+    url: "/order/create",
     method: "POST",
   })
 
@@ -34,6 +34,12 @@ export default function CreateOrderPage() {
             body: t(response.message),
           })
           navigate({ to: "/orders" })
+        },
+        onError: (error) => {
+          toast({
+            body: t(error.message),
+            type: "error",
+          })
         },
       })
     },
