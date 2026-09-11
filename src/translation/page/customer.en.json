@@ -7,6 +7,10 @@
       "email": "Email",
       "phone": "Phone",
       "created_at": "Created At"
+    },
+    "empty": {
+      "title": "No customers found",
+      "description": "Try adjusting your search, or add a new customer."
     }
   }
 }
