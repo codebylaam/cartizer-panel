@@ -38,10 +38,28 @@ import { useReactMutation } from "@/hooks/use-query"
 export const Route = createFileRoute("/login")({
   component: LoginPage,
   loader: async ({ context }) => {
-    const data = await context.queryClient.query({ queryKey: ["auth", "me"] })
-    if (data) {
-      throw redirect({ to: "/dashboard" })
+    try {
+      await context.queryClient.query({
+        queryKey: ["auth/me"],
+        meta: { withCredentials: true },
+      })
+    } catch {
+      return
     }
+
+    throw redirect({ to: "/dashboard" })
+  },
+  errorComponent: ({ error }) => {
+    return <div>{error.message}</div>
+  },
+  pendingComponent: () => {
+    return (
+      <Center axis="both" style={{ minHeight: "100vh" }}>
+        <Text type="body" color="secondary">
+          Loading...
+        </Text>
+      </Center>
+    )
   },
 })
 
@@ -67,7 +85,7 @@ function LoginPage() {
   const { t } = useTranslation()
   const toast = useToast()
   const loginMutation = useReactMutation({
-    url: "/api/auth/login",
+    url: "auth/seller/login",
   })
 
   const navigate = useNavigate()
@@ -77,19 +95,21 @@ function LoginPage() {
     validators: {
       onSubmit: loginSchema,
     },
-    onSubmit: async ({ value }) => {
-      try {
-        const result = await loginMutation.mutateAsync({ data: value })
-        toast({
-          body: result.message || t("login.success"),
-        })
-        navigate({ to: "/dashboard" })
-      } catch (error: any) {
-        toast({
-          body: error.message || t("login.error"),
-          type: "error",
-        })
-      }
+    onSubmit: ({ value }) => {
+      loginMutation.mutate(value, {
+        onSuccess: (data) => {
+          toast({
+            body: t(data.message),
+          })
+          navigate({ to: "/dashboard" })
+        },
+        onError: (error) => {
+          toast({
+            body: t(error.message),
+            type: "error",
+          })
+        },
+      })
     },
     defaultValues: { identifier: "", password: "" },
   })
@@ -107,10 +127,7 @@ function LoginPage() {
               {t("login.title", "Welcome Back")}
             </Heading>
             <Text type="body" color="secondary" size="sm" justify="center">
-              {t(
-                "login.description",
-                "Sign in to access your Savizer merchant dashboard",
-              )}
+              {t("login.description")}
             </Text>
           </VStack>
 
