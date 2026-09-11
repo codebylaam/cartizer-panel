@@ -1,74 +1,50 @@
-import { Link } from '@tanstack/react-router'
-import { createColumnHelper } from '@tanstack/react-table'
+import { pixel, proportional } from "@astryxdesign/core/Table"
+import type { TableColumn } from "@astryxdesign/core/Table"
+import type { TFunction } from "i18next"
 
-import type { TFunction } from 'i18next'
+import type { CategoryT } from "@/schemas/category"
 
-import type { CategoryT } from '@/schemas/category'
-import { Checkbox } from '@/components/ui/checkbox'
-
-const columnHelper = createColumnHelper<CategoryT>()
-
-function generateCategoryListColumns(t: TFunction) {
+function generateCategoryListColumns(
+  t: TFunction,
+): Array<TableColumn<CategoryT>> {
   return [
-    columnHelper.display({
-      id: 'select',
-      header: ({ table }) => (
-        <Checkbox
-          indeterminate={table.getIsSomeRowsSelected()}
-          checked={table.getIsAllRowsSelected()}
-          onCheckedChange={(boolean) =>
-            table.getToggleAllRowsSelectedHandler()({
-              target: { checked: boolean },
+    {
+      key: "name",
+      header: t("page.category.table.header.name"),
+      width: proportional(2),
+      renderCell: (category) => category.name,
+    },
+    {
+      key: "description",
+      header: t("page.category.table.header.description"),
+      width: proportional(3),
+      renderCell: (category) => category.description,
+    },
+    {
+      key: "slug",
+      header: t("page.category.table.header.slug"),
+      width: pixel(180),
+      renderCell: (category) => `/${category.slug}`,
+    },
+    {
+      key: "created_at",
+      header: t("page.category.table.header.created_at"),
+      width: pixel(160),
+      sortable: true,
+      renderCell: (category) =>
+        category.created_at
+          ? t("{{value, datetime}}", {
+              value: new Date(category.created_at),
+              formatParams: {
+                value: {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                },
+              },
             })
-          }
-        />
-      ),
-      cell: ({ row }) => (
-        <Checkbox
-          checked={row.getIsSelected()}
-          onCheckedChange={(boolean) => row.toggleSelected(boolean)}
-        />
-      ),
-    }),
-    columnHelper.accessor('name', {
-      header: () => (
-        <button type="button" className="flex gap-1 items-center">
-          <span>{t('page.category.table.header.name')}</span>
-        </button>
-      ),
-      cell: (info) => (
-        <Link
-          className="underline"
-          to={'/products/$id'}
-          params={{ id: info.row.original.id }}
-        >
-          {info.getValue()}
-        </Link>
-      ),
-    }),
-    columnHelper.accessor('description', {
-      header: t('page.category.table.header.description'),
-      cell: (info) => info.getValue(),
-    }),
-    columnHelper.accessor('slug', {
-      header: t('page.category.table.header.slug'),
-      cell: (info) => `/${info.getValue()}`,
-    }),
-
-    columnHelper.accessor('created_at', {
-      header: t('page.category.table.header.created_at'),
-      cell: (info) =>
-        t('{{value, datetime}}', {
-          value: new Date(info.getValue()),
-          formatParams: {
-            value: {
-              year: 'numeric',
-              month: 'short',
-              day: 'numeric',
-            },
-          },
-        }),
-    }),
+          : "-",
+    },
   ]
 }
 
