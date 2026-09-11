@@ -10,6 +10,7 @@ import sidebar from '@/translation/sidebar/sidebar.bn.json'
 import createProduct from '@/translation/form-validation/product/create-product.bn.json'
 import createOrder from '@/translation/form-validation/order/create-order.bn.json'
 import createCustomer from '@/translation/form-validation/customer/create-customer.bn.json'
+import createCategory from '@/translation/form-validation/category/create-category.bn.json'
 
 const bn = {
   ...global,
@@ -18,6 +19,7 @@ const bn = {
     product: createProduct,
     order: createOrder,
     customer: createCustomer,
+    category: createCategory,
   },
   page: {
     product: product,

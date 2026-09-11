@@ -10,6 +10,7 @@ import sidebar from '@/translation/sidebar/sidebar.en.json'
 import createProduct from '@/translation/form-validation/product/create-product.en.json'
 import createOrder from '@/translation/form-validation/order/create-order.en.json'
 import createCustomer from '@/translation/form-validation/customer/create-customer.en.json'
+import createCategory from '@/translation/form-validation/category/create-category.en.json'
 
 const en = {
   ...global,
@@ -18,6 +19,7 @@ const en = {
     product: createProduct,
     order: createOrder,
     customer: createCustomer,
+    category: createCategory,
   },
   page: {
     product: product,

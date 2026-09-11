@@ -13,7 +13,7 @@ export const Route = createFileRoute("/_authenticated/products/$id")({
     } else {
       const response = await context.queryClient.query(
         reactQueryOptions<CreateProductMutationT>({
-          url: `/api/products/${params.id}`,
+          url: `/product/${params.id}`,
           queryKey: ["product", params.id],
         }),
       )

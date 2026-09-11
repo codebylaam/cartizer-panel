@@ -1,0 +1,35 @@
+{
+  "heading": "Create Category",
+  "description": "Enter category information to add it to your store.",
+  "submit": "Create Category",
+  "form": {
+    "name": {
+      "label": "Name",
+      "placeholder": "e.g. Electronics"
+    },
+    "slug": {
+      "label": "Slug",
+      "placeholder": "e.g. electronics"
+    },
+    "description": {
+      "label": "Description",
+      "placeholder": "e.g. Phones, laptops and accessories."
+    }
+  },
+  "validation": {
+    "name": {
+      "required": "Name is required",
+      "min": "Name must be at least 3 characters",
+      "max": "Name must be at most 100 characters"
+    },
+    "slug": {
+      "required": "Slug is required",
+      "min": "Slug must be at least 3 characters",
+      "max": "Slug must be at most 100 characters"
+    },
+    "description": {
+      "required": "Description is required",
+      "min": "Description must be at least 10 characters"
+    }
+  }
+}

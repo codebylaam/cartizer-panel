@@ -1,6 +1,7 @@
 {
   "title": "Categories",
   "description": "Categories",
+  "add": "Add Category",
   "table": {
     "header": {
       "name": "Name",

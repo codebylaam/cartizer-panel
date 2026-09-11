@@ -1,4 +1,4 @@
-import { useMemo } from "react"
+import { useMemo, useState } from "react"
 import { useTranslation } from "react-i18next"
 import { createFileRoute } from "@tanstack/react-router"
 import { Button, Center, Text } from "@astryxdesign/core"
@@ -6,6 +6,7 @@ import { VStack } from "@astryxdesign/core/VStack"
 
 import Module from "@/components/module/module"
 import { CategoryQueryKeys } from "@/constants/query-keys"
+import { CreateCategoryModal } from "@/pages/categories/components/create-category-modal"
 import generateCategoryListColumns from "@/pages/categories/columns"
 import type { CategoryT } from "@/schemas/category"
 import { filterSchema } from "@/schemas/filter"
@@ -60,11 +61,17 @@ function RouteComponent() {
   const navigate = Route.useNavigate()
   const { sort_by, sort_order } = Route.useSearch()
   const columns = useMemo(() => generateCategoryListColumns(t), [t])
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
   return (
     <Module navigate={navigate}>
       <Module.Header>
         <Module.Title>{t("page.category.title")}</Module.Title>
+        <Button
+          label={t("page.category.add")}
+          variant="primary"
+          onClick={() => setIsModalOpen(true)}
+        />
       </Module.Header>
       <Module.Content>
         <Module.Filter />
@@ -89,6 +96,14 @@ function RouteComponent() {
           hasHover
         />
       </Module.Content>
+
+      <CreateCategoryModal
+        open={isModalOpen}
+        onOpenChange={setIsModalOpen}
+        onSuccess={() => {
+          navigate({ to: "/categories", replace: true })
+        }}
+      />
     </Module>
   )
 }

@@ -43,7 +43,7 @@ export default function CreateProductPage() {
     CreateProductMutationT,
     ProductT
   >({
-    url: "/product/update",
+    url: `/product/update/${id}`,
     method: "PUT",
   })
 
