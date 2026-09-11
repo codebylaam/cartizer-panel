@@ -8,6 +8,10 @@
       "size": "Size",
       "mime_type": "Type",
       "created_at": "Created at"
+    },
+    "empty": {
+      "title": "No media found",
+      "description": "Upload images or documents to see them here."
     }
   }
 }
