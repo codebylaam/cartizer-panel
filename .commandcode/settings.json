@@ -1,3 +1,18 @@
 {
-  "tasteLearning": true
+  "tasteLearning": true,
+  "permissions": {
+    "allow": [
+      "Shell(bunx astryx component Table 2 >& 1)",
+      "Shell(bunx astryx component useTablePagination 2 >& 1)",
+      "Shell(echo:*)",
+      "Shell(bunx astryx component useTableSortable 2 >& 1)",
+      "Shell(bunx astryx template TablePaginatedTable 2 >& 1)",
+      "Shell(bunx astryx template TableSelectableTable 2 >& 1)",
+      "Shell(bunx astryx search empty state 2 >& 1)",
+      "Shell(bunx astryx component StatusDot 2 >& 1)",
+      "Shell(bunx astryx component Token 2 >& 1)"
+    ],
+    "deny": [],
+    "defaultMode": "default"
+  }
 }
