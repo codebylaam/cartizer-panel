@@ -16,7 +16,38 @@
       "placeholder": "+8801912345678"
     },
     "password": {
-      "label": "Password"
+      "label": "Password",
+      "description": "Optional. The account stays unclaimed until the customer registers."
+    },
+    "shipping_address": {
+      "toggle": "Add a shipping address",
+      "address_1": {
+        "label": "Address Line 1",
+        "placeholder": "House, road, area"
+      },
+      "address_2": {
+        "label": "Address Line 2",
+        "placeholder": "Apartment, landmark"
+      },
+      "city": { "label": "City" },
+      "state": { "label": "State / Division" },
+      "postal_code": { "label": "Postal Code" },
+      "country": { "label": "Country" }
+    },
+    "billing_address": {
+      "toggle": "Add a billing address",
+      "address_1": {
+        "label": "Address Line 1",
+        "placeholder": "House, road, area"
+      },
+      "address_2": {
+        "label": "Address Line 2",
+        "placeholder": "Apartment, landmark"
+      },
+      "city": { "label": "City" },
+      "state": { "label": "State / Division" },
+      "postal_code": { "label": "Postal Code" },
+      "country": { "label": "Country" }
     }
   },
   "validation": {
@@ -29,8 +60,23 @@
       "invalid": "Invalid email address"
     },
     "password": {
-      "required": "Password is required",
       "min": "Password must be at least 6 characters"
+    },
+    "address_1": {
+      "required": "Address is required"
+    },
+    "city": {
+      "required": "City is required"
+    },
+    "state": {
+      "required": "State is required"
+    },
+    "postal_code": {
+      "required": "Postal code is required",
+      "max": "Postal code must be at most 20 characters"
+    },
+    "country": {
+      "max": "Country must be at most 10 characters"
     }
   }
 }

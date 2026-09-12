@@ -103,19 +103,32 @@ const OrderSummary = withForm({
                   }}
                 </form.Subscribe>
 
-                <form.Subscribe>
-                  {({ isValid, isSubmitting }) => (
-                    <Button
-                      label={t('create.order.submit', 'Create Order')}
-                      type="submit"
-                      isLoading={isSubmitting}
-                      isDisabled={!isValid}
-                      variant="primary"
-                      width="100%"
-                    >
-                      {t('create.order.submit', 'Create Order')}
-                    </Button>
-                  )}
+                <form.Subscribe
+                  selector={(state) => ({
+                    isValid: state.isValid,
+                    isSubmitting: state.isSubmitting,
+                    mode: state.values.mode,
+                  })}
+                >
+                  {({ isValid, isSubmitting, mode }) => {
+                    const submitLabel =
+                      mode === 'update'
+                        ? t('create.order.update_submit', 'Update Order')
+                        : t('create.order.submit', 'Create Order')
+
+                    return (
+                      <Button
+                        label={submitLabel}
+                        type="submit"
+                        isLoading={isSubmitting}
+                        isDisabled={!isValid}
+                        variant="primary"
+                        width="100%"
+                      >
+                        {submitLabel}
+                      </Button>
+                    )
+                  }}
                 </form.Subscribe>
               </VStack>
             </LayoutContent>

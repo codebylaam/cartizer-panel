@@ -34,6 +34,7 @@
   },
   "settings": {
     "title": "সেটিংস",
+    "shop": "দোকানের সেটিংস",
     "general": "জেনারেল",
     "shipping": "শিপিং",
     "payment": "পেমেন্ট"

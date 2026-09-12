@@ -52,3 +52,8 @@ export const DashboardQueryKeys = {
   metrics: () => [...DashboardQueryKeys.all, "metrics"] as const,
   latestOrders: () => [...DashboardQueryKeys.all, "latest-orders"] as const,
 }
+
+export const ShopQueryKeys = {
+  all: ["shop"] as const,
+  detail: () => [...ShopQueryKeys.all, "detail"] as const,
+}

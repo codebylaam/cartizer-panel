@@ -3,28 +3,25 @@ import { createFileRoute } from "@tanstack/react-router"
 import { Button, Center, Text } from "@astryxdesign/core"
 import { VStack } from "@astryxdesign/core/VStack"
 
-import { ProductQueryKeys } from "@/constants/query-keys"
-import OrderFormPage from "@/pages/orders/create-order/create-order-page"
-import type { ProductT } from "@/schemas/product"
+import { OrderQueryKeys } from "@/constants/query-keys"
+import OrderDetailPage from "@/pages/orders/detail/order-detail-page"
+import type { OrderT } from "@/schemas/order"
 import reactQueryOptions from "@/utils/query-options"
 
-export const Route = createFileRoute("/_authenticated/orders/create/")({
-  component: RouteComponent,
-  loader: ({ context }) =>
-    context.queryClient.query(
-      reactQueryOptions<ProductT, true>({
-        url: "/product/list",
-        queryKey: ProductQueryKeys.lists(),
+export const Route = createFileRoute("/_authenticated/orders/$id/")({
+  component: OrderDetailPage,
+  loader: async ({ params, context }) => {
+    const response = await context.queryClient.query(
+      reactQueryOptions<OrderT>({
+        url: `/order/${params.id}`,
+        queryKey: OrderQueryKeys.detail(params.id),
       }),
-    ),
+    )
+    return { order: response.data }
+  },
   pendingComponent: PendingComponent,
   errorComponent: ErrorComponent,
 })
-
-function RouteComponent() {
-  const products = Route.useLoaderData().data
-  return <OrderFormPage products={products} />
-}
 
 function PendingComponent() {
   const { t } = useTranslation()

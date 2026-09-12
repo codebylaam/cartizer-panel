@@ -3,27 +3,29 @@ import { createFileRoute } from "@tanstack/react-router"
 import { Button, Center, Text } from "@astryxdesign/core"
 import { VStack } from "@astryxdesign/core/VStack"
 
-import { ProductQueryKeys } from "@/constants/query-keys"
-import OrderFormPage from "@/pages/orders/create-order/create-order-page"
-import type { ProductT } from "@/schemas/product"
+import { ShopQueryKeys } from "@/constants/query-keys"
+import ShopSettingsPage from "@/pages/shop/settings/shop-settings-page"
+import type { ShopT } from "@/schemas/shop"
 import reactQueryOptions from "@/utils/query-options"
 
-export const Route = createFileRoute("/_authenticated/orders/create/")({
+export const Route = createFileRoute("/_authenticated/shop/settings")({
   component: RouteComponent,
-  loader: ({ context }) =>
-    context.queryClient.query(
-      reactQueryOptions<ProductT, true>({
-        url: "/product/list",
-        queryKey: ProductQueryKeys.lists(),
+  loader: async ({ context }) => {
+    const response = await context.queryClient.query(
+      reactQueryOptions<ShopT>({
+        url: "/shop",
+        queryKey: ShopQueryKeys.detail(),
       }),
-    ),
+    )
+    return { shop: response.data }
+  },
   pendingComponent: PendingComponent,
   errorComponent: ErrorComponent,
 })
 
 function RouteComponent() {
-  const products = Route.useLoaderData().data
-  return <OrderFormPage products={products} />
+  const { shop } = Route.useLoaderData()
+  return <ShopSettingsPage shop={shop} />
 }
 
 function PendingComponent() {

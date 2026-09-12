@@ -71,6 +71,10 @@ export const getSidebarMediaLinks = (t: TFunction) => {
 export const getSidebarSettingLinks = (t: TFunction) => {
   return [
     {
+      name: t('sidebar.settings.shop'),
+      href: '/shop/settings',
+    },
+    {
       name: t('sidebar.settings.general'),
       href: '/settings/general',
     },

@@ -34,6 +34,7 @@
   },
   "settings": {
     "title": "Settings",
+    "shop": "Shop Settings",
     "general": "General",
     "shipping": "Shipping",
     "payment": "Payment"

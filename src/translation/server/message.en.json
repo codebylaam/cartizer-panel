@@ -40,5 +40,11 @@
   "category_fetched_successfully": "Category fetched successfully",
   "categories_fetched_successfully": "Categories fetched successfully",
 
-  "seller_logged_in_successfully": "Seller logged in successfully"
+  "shop_fetched_successfully": "Shop fetched successfully",
+  "shop_updated_successfully": "Shop updated successfully",
+  "shop_name_already_taken": "That shop name is already taken, please choose another",
+
+  "seller_registered_successfully": "Seller account created successfully",
+  "seller_logged_in_successfully": "Seller logged in successfully",
+  "validation_failed": "Please check the highlighted fields and try again"
 }

@@ -6,11 +6,21 @@
       "name": "Customer Name",
       "email": "Email",
       "phone": "Phone",
+      "account_status": "Status",
+      "created_by": "Added By",
       "created_at": "Created At"
     },
     "empty": {
       "title": "No customers found",
       "description": "Try adjusting your search, or add a new customer."
     }
+  },
+  "status": {
+    "UNCLAIMED": "Unclaimed",
+    "ACTIVE": "Active"
+  },
+  "created_by": {
+    "SELLER": "Seller",
+    "CUSTOMER": "Customer"
   }
 }

@@ -1,0 +1,100 @@
+{
+  "title": "Shop Settings",
+  "description": "Manage your storefront details, branding and store preferences.",
+  "save": "Save Changes",
+  "section": {
+    "details": "Shop Details",
+    "branding": "Branding",
+    "preferences": "Preferences"
+  },
+  "field": {
+    "name": {
+      "label": "Shop Name",
+      "placeholder": "e.g. Cartizer Store",
+      "description": "Shown to customers across your storefront"
+    },
+    "description": {
+      "label": "Shop Description",
+      "placeholder": "Tell customers what your shop is about",
+      "description": "A short introduction to your shop"
+    },
+    "phone": {
+      "label": "Phone",
+      "placeholder": "+8801912345670"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "shop@example.com"
+    },
+    "country": {
+      "label": "Country",
+      "placeholder": "Bangladesh"
+    },
+    "address": {
+      "label": "Address",
+      "placeholder": "Street, city, postal code"
+    },
+    "logo": {
+      "label": "Logo URL",
+      "placeholder": "https://example.com/logo.png"
+    },
+    "favicon": {
+      "label": "Favicon URL",
+      "placeholder": "https://example.com/favicon.ico"
+    },
+    "primary_color": {
+      "label": "Primary Color",
+      "placeholder": "#1A73E8",
+      "description": "Hex color used as your storefront accent"
+    },
+    "announcement": {
+      "label": "Announcement",
+      "placeholder": "Free delivery on orders over ৳1000",
+      "description": "Banner text shown at the top of your storefront"
+    },
+    "shop_type": {
+      "label": "Shop Type",
+      "description": "How your shop operates",
+      "options": {
+        "online": "Online",
+        "physical": "Physical",
+        "both": "Both"
+      }
+    },
+    "default_language": {
+      "label": "Default Language",
+      "description": "Language used for your storefront by default"
+    },
+    "show_product_sold_count": {
+      "label": "Show Product Sold Count",
+      "description": "Display how many units of a product have been sold"
+    },
+    "show_email_field_place_order": {
+      "label": "Show Email Field At Checkout",
+      "description": "Ask customers for their email when placing an order"
+    },
+    "auto_select_mandatory_variant": {
+      "label": "Auto Select Mandatory Variants",
+      "description": "Preselect the first option of required variants"
+    }
+  },
+  "validation": {
+    "name": {
+      "required": "Shop name is required",
+      "min": "Shop name must be at least 2 characters",
+      "max": "Shop name must be at most 100 characters"
+    },
+    "phone": {
+      "max": "Phone must be at most 50 characters"
+    },
+    "email": {
+      "invalid": "Enter a valid email address"
+    },
+    "country": {
+      "max": "Country must be at most 100 characters"
+    },
+    "primary_color": {
+      "max": "Primary color must be at most 50 characters"
+    }
+  }
+}

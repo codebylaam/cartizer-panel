@@ -3,27 +3,38 @@ import { createFileRoute } from "@tanstack/react-router"
 import { Button, Center, Text } from "@astryxdesign/core"
 import { VStack } from "@astryxdesign/core/VStack"
 
-import { ProductQueryKeys } from "@/constants/query-keys"
+import { OrderQueryKeys, ProductQueryKeys } from "@/constants/query-keys"
 import OrderFormPage from "@/pages/orders/create-order/create-order-page"
+import type { OrderT } from "@/schemas/order"
 import type { ProductT } from "@/schemas/product"
 import reactQueryOptions from "@/utils/query-options"
 
-export const Route = createFileRoute("/_authenticated/orders/create/")({
+export const Route = createFileRoute("/_authenticated/orders/$id/edit")({
   component: RouteComponent,
-  loader: ({ context }) =>
-    context.queryClient.query(
-      reactQueryOptions<ProductT, true>({
-        url: "/product/list",
-        queryKey: ProductQueryKeys.lists(),
-      }),
-    ),
+  loader: async ({ params, context }) => {
+    const [products, order] = await Promise.all([
+      context.queryClient.query(
+        reactQueryOptions<ProductT, true>({
+          url: "/product/list",
+          queryKey: ProductQueryKeys.lists(),
+        }),
+      ),
+      context.queryClient.query(
+        reactQueryOptions<OrderT>({
+          url: `/order/${params.id}`,
+          queryKey: OrderQueryKeys.detail(params.id),
+        }),
+      ),
+    ])
+    return { products: products.data, order: order.data }
+  },
   pendingComponent: PendingComponent,
   errorComponent: ErrorComponent,
 })
 
 function RouteComponent() {
-  const products = Route.useLoaderData().data
-  return <OrderFormPage products={products} />
+  const { products, order } = Route.useLoaderData()
+  return <OrderFormPage products={products} order={order} />
 }
 
 function PendingComponent() {

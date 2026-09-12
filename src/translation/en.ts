@@ -1,5 +1,6 @@
 import global from '@/translation/global/en.json'
 import media from '@/translation/page/media.en.json'
+import shop from '@/translation/page/shop.en.json'
 import inventory from '@/translation/page/inventory.en.json'
 import order from '@/translation/page/order.en.json'
 import customer from '@/translation/page/customer.en.json'
@@ -28,6 +29,7 @@ const en = {
     inventory: inventory,
     category: category,
     media: media,
+    shop: shop,
   },
   sidebar: sidebar,
   server: {

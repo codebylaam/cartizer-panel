@@ -1,0 +1,100 @@
+{
+  "title": "দোকানের সেটিংস",
+  "description": "আপনার দোকানের তথ্য, ব্র্যান্ডিং এবং পছন্দসমূহ পরিচালনা করুন।",
+  "save": "পরিবর্তন সংরক্ষণ করুন",
+  "section": {
+    "details": "দোকানের তথ্য",
+    "branding": "ব্র্যান্ডিং",
+    "preferences": "পছন্দসমূহ"
+  },
+  "field": {
+    "name": {
+      "label": "দোকানের নাম",
+      "placeholder": "যেমন: Cartizer Store",
+      "description": "আপনার দোকানে গ্রাহকরা এটি দেখতে পাবেন"
+    },
+    "description": {
+      "label": "দোকানের বিবরণ",
+      "placeholder": "আপনার দোকান সম্পর্কে গ্রাহকদের জানান",
+      "description": "আপনার দোকানের একটি সংক্ষিপ্ত পরিচিতি"
+    },
+    "phone": {
+      "label": "ফোন নম্বর",
+      "placeholder": "+8801912345670"
+    },
+    "email": {
+      "label": "ইমেইল",
+      "placeholder": "shop@example.com"
+    },
+    "country": {
+      "label": "দেশ",
+      "placeholder": "বাংলাদেশ"
+    },
+    "address": {
+      "label": "ঠিকানা",
+      "placeholder": "সড়ক, শহর, পোস্ট কোড"
+    },
+    "logo": {
+      "label": "লোগোর URL",
+      "placeholder": "https://example.com/logo.png"
+    },
+    "favicon": {
+      "label": "ফ্যাভিকনের URL",
+      "placeholder": "https://example.com/favicon.ico"
+    },
+    "primary_color": {
+      "label": "প্রধান রঙ",
+      "placeholder": "#1A73E8",
+      "description": "আপনার দোকানের অ্যাকসেন্ট রঙ (হেক্স কোড)"
+    },
+    "announcement": {
+      "label": "ঘোষণা",
+      "placeholder": "১০০০ টাকার উপরে অর্ডারে ফ্রি ডেলিভারি",
+      "description": "আপনার দোকানের উপরে দেখানো ব্যানার লেখা"
+    },
+    "shop_type": {
+      "label": "দোকানের ধরন",
+      "description": "আপনার দোকান কীভাবে পরিচালিত হয়",
+      "options": {
+        "online": "অনলাইন",
+        "physical": "ফিজিক্যাল",
+        "both": "উভয়ই"
+      }
+    },
+    "default_language": {
+      "label": "ডিফল্ট ভাষা",
+      "description": "আপনার দোকানে ডিফল্টভাবে ব্যবহৃত ভাষা"
+    },
+    "show_product_sold_count": {
+      "label": "পণ্য বিক্রির সংখ্যা দেখান",
+      "description": "একটি পণ্যের কতটি বিক্রি হয়েছে তা প্রদর্শন করুন"
+    },
+    "show_email_field_place_order": {
+      "label": "চেকআউটে ইমেইল ফিল্ড দেখান",
+      "description": "অর্ডার করার সময় গ্রাহকের ইমেইল চাইুন"
+    },
+    "auto_select_mandatory_variant": {
+      "label": "আবশ্যক ভ্যারিয়েন্ট স্বয়ংক্রিয় নির্বাচন",
+      "description": "আবশ্যক ভ্যারিয়েন্টের প্রথম অপশন আগেই নির্বাচন করে রাখুন"
+    }
+  },
+  "validation": {
+    "name": {
+      "required": "দোকানের নাম আবশ্যক",
+      "min": "দোকানের নাম কমপক্ষে ২ অক্ষরের হতে হবে",
+      "max": "দোকানের নাম সর্বোচ্চ ১০০ অক্ষরের হতে পারবে"
+    },
+    "phone": {
+      "max": "ফোন নম্বর সর্বোচ্চ ৫০ অক্ষরের হতে পারবে"
+    },
+    "email": {
+      "invalid": "সঠিক ইমেইল ঠিকানা দিন"
+    },
+    "country": {
+      "max": "দেশের নাম সর্বোচ্চ ১০০ অক্ষরের হতে পারবে"
+    },
+    "primary_color": {
+      "max": "প্রধান রঙ সর্বোচ্চ ৫০ অক্ষরের হতে পারবে"
+    }
+  }
+}

@@ -13,3 +13,13 @@ export const filterSchema = z.object({
 })
 
 export type FilterParams = z.infer<typeof filterSchema>
+
+export const customerFilterSchema = z.object({
+  page: z.number().min(1).optional(),
+  limit: z.number().min(1).max(100).optional(),
+  search: z.string().optional(),
+  sort_by: z.enum(['name', 'email', 'phone', 'created_at']).optional(),
+  sort_order: z.enum(['asc', 'desc']).optional(),
+})
+
+export type CustomerFilterParams = z.infer<typeof customerFilterSchema>

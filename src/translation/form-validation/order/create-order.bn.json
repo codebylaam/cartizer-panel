@@ -1,6 +1,8 @@
 {
   "heading": "অর্ডার তৈরি করুন",
+  "update_heading": "অর্ডার আপডেট করুন",
   "submit": "অর্ডার সংরক্ষণ করুন",
+  "update_submit": "অর্ডার আপডেট করুন",
   "form": {
     "customer": "গ্রাহকের তথ্যাবলী",
     "customer_name": {
@@ -12,6 +14,11 @@
       "label": "গ্রাহকের ফোন নম্বর",
       "placeholder": "+8801912345670",
       "description": "গ্রাহকের যোগাযোগের ফোন নম্বর"
+    },
+    "customer_email": {
+      "label": "গ্রাহকের ইমেইল",
+      "placeholder": "customer@example.com",
+      "description": "গ্রাহকের ইমেইল ঠিকানা (ঐচ্ছিক)"
     },
     "items": {
       "heading": "পণ্যসমূহ",
@@ -63,10 +70,9 @@
       "label": "পেমেন্ট স্ট্যাটাস",
       "description": "বর্তমান পেমেন্ট স্ট্যাটাস নির্বাচন করুন",
       "options": {
-        "paid": "পরিশোধিত (Paid)",
         "unpaid": "অপরিশোধিত (Unpaid)",
-        "pending": "অপেক্ষমাণ (Pending)",
-        "partial": "আংশিক (Partial)",
+        "paid": "পরিশোধিত (Paid)",
+        "partially_paid": "আংশিক পরিশোধিত (Partially Paid)",
         "refunded": "ফেরত (Refunded)"
       }
     },
@@ -74,12 +80,13 @@
       "label": "পেমেন্ট পদ্ধতি",
       "description": "পেমেন্টের মাধ্যম নির্বাচন করুন",
       "options": {
+        "cod": "ক্যাশ অন ডেলিভারি",
+        "online": "অনলাইন",
         "bkash": "বিকাশ (bKash)",
         "nagad": "নগদ (Nagad)",
-        "rocket": "রকেট (Rocket)",
-        "cash_on_delivery": "ক্যাশ অন ডেলিভারি",
         "bank_transfer": "ব্যাংক ট্রান্সফার",
-        "card": "কার্ড"
+        "cash": "নগদ",
+        "other": "অন্যান্য"
       }
     },
     "delivery_charge": {
@@ -89,6 +96,16 @@
     "discount": {
       "label": "ডিসকাউন্ট (টাকা)",
       "description": "ছাড়ের পরিমাণ"
+    },
+    "status": {
+      "heading": "অর্ডার স্ট্যাটাস",
+      "label": "স্ট্যাটাস",
+      "description": "অর্ডারের বর্তমান অবস্থা"
+    },
+    "notes": {
+      "label": "নোট",
+      "placeholder": "এই অর্ডার সম্পর্কে একটি নোট লিখুন",
+      "description": "অভ্যন্তরীণ নোট, গ্রাহক দেখতে পাবেন না"
     },
     "summary": {
       "heading": "অর্ডার সারসংক্ষেপ",
@@ -104,6 +121,12 @@
     },
     "customer_phone": {
       "required": "গ্রাহকের ফোন নম্বর আবশ্যক"
+    },
+    "customer_email": {
+      "invalid": "সঠিক ইমেইল ঠিকানা দিন"
+    },
+    "product_name": {
+      "required": "পণ্যের নাম আবশ্যক"
     },
     "items": {
       "min": "কমপক্ষে একটি পণ্য যোগ করতে হবে"

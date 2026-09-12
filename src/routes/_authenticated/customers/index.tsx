@@ -8,13 +8,13 @@ import Module from "@/components/module/module"
 import { CustomerQueryKeys } from "@/constants/query-keys"
 import { CreateCustomerModal } from "@/pages/customers/components/create-customer-modal"
 import generateCustomerListColumns from "@/pages/customers/list/columns"
-import { filterSchema } from "@/schemas/filter"
+import { customerFilterSchema } from "@/schemas/filter"
 import type { CustomerT } from "@/schemas/customer"
 import reactQueryOptions from "@/utils/query-options"
 
 export const Route = createFileRoute("/_authenticated/customers/")({
   component: RouteComponent,
-  validateSearch: filterSchema,
+  validateSearch: customerFilterSchema,
   loaderDeps: ({ search }) => search,
   loader: async ({ deps, context }) => {
     const response = await context.queryClient.query(

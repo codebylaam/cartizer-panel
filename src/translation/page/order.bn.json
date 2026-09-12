@@ -1,20 +1,66 @@
 {
   "title": "অর্ডারসমূহ",
   "add": "অর্ডার তৈরি করুন",
+  "status": {
+    "pending": "পেন্ডিং",
+    "processing": "প্রক্রিয়াধীন",
+    "shipped": "শিপড",
+    "delivered": "ডেলিভারি সম্পন্ন",
+    "cancelled": "বাতিল",
+    "refunded": "ফেরত"
+  },
   "table": {
     "header": {
+      "order_number": "অর্ডার আইডি",
       "customer_name": "গ্রাহকের নাম",
       "customer_phone": "ফোন নম্বর",
       "payment_status": "পেমেন্ট স্ট্যাটাস",
       "payment_method": "পেমেন্ট পদ্ধতি",
       "delivery_charge": "ডেলিভারি চার্জ",
       "discount": "ডিসকাউন্ট",
+      "total": "সর্বমোট",
       "items_count": "পণ্যের সংখ্যা",
       "created_at": "তৈরির তারিখ"
     },
     "empty": {
       "title": "কোনো অর্ডার পাওয়া যায়নি",
       "description": "সার্চ বা ফিল্টার পরিবর্তন করুন, অথবা নতুন অর্ডার তৈরি করুন।"
+    }
+  },
+  "detail": {
+    "title": "অর্ডারের বিবরণ",
+    "back": "অর্ডার তালিকায় ফিরুন",
+    "edit": "অর্ডার সম্পাদনা করুন",
+    "customer": {
+      "heading": "গ্রাহক",
+      "name": "গ্রাহকের নাম",
+      "phone": "ফোন নম্বর",
+      "email": "ইমেইল"
+    },
+    "items": {
+      "heading": "পণ্যসমূহ",
+      "sku": "এসকেইউ",
+      "quantity": "পরিমাণ"
+    },
+    "shipping": {
+      "heading": "ডেলিভারি ঠিকানা"
+    },
+    "payment": {
+      "heading": "পেমেন্ট",
+      "order_status": "অর্ডার স্ট্যাটাস",
+      "status": "পেমেন্ট স্ট্যাটাস",
+      "method": "পেমেন্ট পদ্ধতি",
+      "placed_at": "অর্ডারের তারিখ"
+    },
+    "summary": {
+      "heading": "অর্ডার সারসংক্ষেপ",
+      "subtotal": "সাবটোটাল",
+      "discount": "ডিসকাউন্ট",
+      "delivery_charge": "ডেলিভারি চার্জ",
+      "total": "সর্বমোট"
+    },
+    "notes": {
+      "heading": "নোট"
     }
   }
 }

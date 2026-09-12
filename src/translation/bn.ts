@@ -1,5 +1,6 @@
 import global from '@/translation/global/bn.json'
 import media from '@/translation/page/media.bn.json'
+import shop from '@/translation/page/shop.bn.json'
 import inventory from '@/translation/page/inventory.bn.json'
 import order from '@/translation/page/order.bn.json'
 import customer from '@/translation/page/customer.bn.json'
@@ -28,6 +29,7 @@ const bn = {
     inventory: inventory,
     category: category,
     media: media,
+    shop: shop,
   },
   sidebar: sidebar,
   server: {

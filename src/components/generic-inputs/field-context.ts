@@ -1,5 +1,6 @@
 import { createFormHook, createFormHookContexts } from '@tanstack/react-form'
 import { GenericInput } from './generic-input'
+import { GenericSwitch } from './generic-switch'
 import { GenericTextarea } from './generic-textarea'
 import { GenericSelect } from './generic-select'
 import { GenericFileUploader } from './generic-file-uploader'
@@ -13,6 +14,7 @@ export const { fieldContext, formContext, useFieldContext, useFormContext } =
 export const { useAppForm, withForm, withFieldGroup } = createFormHook({
   fieldComponents: {
     GenericInput,
+    GenericSwitch,
     GenericTextarea,
     GenericSelect,
     GenericFileUploader,

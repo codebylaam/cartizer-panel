@@ -1,6 +1,8 @@
 {
   "heading": "Create Order",
+  "update_heading": "Update Order",
   "submit": "Create Order",
+  "update_submit": "Update Order",
   "form": {
     "customer": "Customer Information",
     "customer_name": {
@@ -12,6 +14,11 @@
       "label": "Customer Phone",
       "placeholder": "+8801912345670",
       "description": "Contact phone number of the customer"
+    },
+    "customer_email": {
+      "label": "Customer Email",
+      "placeholder": "customer@example.com",
+      "description": "Optional email address of the customer"
     },
     "items": {
       "heading": "Products",
@@ -63,10 +70,9 @@
       "label": "Payment Status",
       "description": "Select current payment status",
       "options": {
-        "paid": "Paid",
         "unpaid": "Unpaid",
-        "pending": "Pending",
-        "partial": "Partial",
+        "paid": "Paid",
+        "partially_paid": "Partially Paid",
         "refunded": "Refunded"
       }
     },
@@ -74,12 +80,13 @@
       "label": "Payment Method",
       "description": "Select method of payment",
       "options": {
+        "cod": "Cash on Delivery",
+        "online": "Online",
         "bkash": "bKash",
         "nagad": "Nagad",
-        "rocket": "Rocket",
-        "cash_on_delivery": "Cash on Delivery",
         "bank_transfer": "Bank Transfer",
-        "card": "Card"
+        "cash": "Cash",
+        "other": "Other"
       }
     },
     "delivery_charge": {
@@ -89,6 +96,16 @@
     "discount": {
       "label": "Discount (BDT)",
       "description": "Discount amount to apply"
+    },
+    "status": {
+      "heading": "Order Status",
+      "label": "Status",
+      "description": "Fulfillment status of the order"
+    },
+    "notes": {
+      "label": "Notes",
+      "placeholder": "Add a note about this order",
+      "description": "Internal notes, not shown to the customer"
     },
     "summary": {
       "heading": "Order Summary",
@@ -104,6 +121,12 @@
     },
     "customer_phone": {
       "required": "Customer phone is required"
+    },
+    "customer_email": {
+      "invalid": "Enter a valid email address"
+    },
+    "product_name": {
+      "required": "Product name is required"
     },
     "items": {
       "min": "At least one order item is required"

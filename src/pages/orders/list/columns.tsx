@@ -1,4 +1,6 @@
+import { Link } from "@tanstack/react-router"
 import { pixel, proportional } from "@astryxdesign/core/Table"
+import { Text } from "@astryxdesign/core/Text"
 import { Token } from "@astryxdesign/core/Token"
 import type { TableColumn } from "@astryxdesign/core/Table"
 import type { TokenColor } from "@astryxdesign/core/Token"
@@ -14,8 +16,7 @@ import type { OrderT } from "@/schemas/order"
 const PAYMENT_STATUS_COLOR: Record<string, TokenColor> = {
   [PAYMENT_STATUS.PAID]: "green",
   [PAYMENT_STATUS.UNPAID]: "red",
-  [PAYMENT_STATUS.PENDING]: "yellow",
-  [PAYMENT_STATUS.PARTIAL]: "blue",
+  [PAYMENT_STATUS.PARTIALLY_PAID]: "blue",
   [PAYMENT_STATUS.REFUNDED]: "gray",
 }
 
@@ -28,6 +29,19 @@ function generateOrderListColumns(t: TFunction): Array<TableColumn<OrderT>> {
   )
 
   return [
+    {
+      key: "order_number",
+      header: t("page.order.table.header.order_number"),
+      width: pixel(180),
+      renderCell: (order) =>
+        order.id ? (
+          <Link to="/orders/$id" params={{ id: order.id }}>
+            <Text color="accent">{order.order_number ?? order.id}</Text>
+          </Link>
+        ) : (
+          (order.order_number ?? "-")
+        ),
+    },
     {
       key: "customer_name",
       header: t("page.order.table.header.customer_name"),
@@ -76,6 +90,14 @@ function generateOrderListColumns(t: TFunction): Array<TableColumn<OrderT>> {
       width: pixel(130),
       align: "end",
       renderCell: (order) => t("{{value, currency(BDT)}}", { value: order.discount }),
+    },
+    {
+      key: "total",
+      header: t("page.order.table.header.total"),
+      width: pixel(150),
+      align: "end",
+      renderCell: (order) =>
+        t("{{value, currency(BDT)}}", { value: Number(order.total) || 0 }),
     },
     {
       key: "items",

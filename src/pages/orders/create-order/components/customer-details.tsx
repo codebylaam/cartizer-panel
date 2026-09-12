@@ -22,32 +22,48 @@ const CustomerDetails = withForm({
           }
           content={
             <LayoutContent>
-              <FormLayout direction="horizontal">
-                <form.AppField name="customer_name">
-                  {(field) => (
-                    <field.GenericInput
-                      isRequired
-                      label={t('create.order.form.customer_name.label')}
-                      placeholder={t(
-                        'create.order.form.customer_name.placeholder',
-                      )}
-                      description={t(
-                        'create.order.form.customer_name.description',
-                      )}
-                    />
-                  )}
-                </form.AppField>
+              <FormLayout>
+                <FormLayout direction="horizontal">
+                  <form.AppField name="customer_name">
+                    {(field) => (
+                      <field.GenericInput
+                        isRequired
+                        label={t('create.order.form.customer_name.label')}
+                        placeholder={t(
+                          'create.order.form.customer_name.placeholder',
+                        )}
+                        description={t(
+                          'create.order.form.customer_name.description',
+                        )}
+                      />
+                    )}
+                  </form.AppField>
 
-                <form.AppField name="customer_phone">
+                  <form.AppField name="customer_phone">
+                    {(field) => (
+                      <field.GenericInput
+                        isRequired
+                        label={t('create.order.form.customer_phone.label')}
+                        placeholder={t(
+                          'create.order.form.customer_phone.placeholder',
+                        )}
+                        description={t(
+                          'create.order.form.customer_phone.description',
+                        )}
+                      />
+                    )}
+                  </form.AppField>
+                </FormLayout>
+
+                <form.AppField name="customer_email">
                   {(field) => (
                     <field.GenericInput
-                      isRequired
-                      label={t('create.order.form.customer_phone.label')}
+                      label={t('create.order.form.customer_email.label')}
                       placeholder={t(
-                        'create.order.form.customer_phone.placeholder',
+                        'create.order.form.customer_email.placeholder',
                       )}
                       description={t(
-                        'create.order.form.customer_phone.description',
+                        'create.order.form.customer_email.description',
                       )}
                     />
                   )}

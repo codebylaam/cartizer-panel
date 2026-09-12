@@ -6,4 +6,6 @@ export const createCustomerDefaultValue: CreateCustomerT = {
   email: '',
   phone: '',
   password: '',
+  shipping_address: undefined,
+  billing_address: undefined,
 }

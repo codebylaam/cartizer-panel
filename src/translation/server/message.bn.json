@@ -40,5 +40,11 @@
   "category_fetched_successfully": "ক্যাটাগরি সফলভাবে লোড হয়েছে",
   "categories_fetched_successfully": "ক্যাটাগরি সমুহ সফলভাবে লোড হয়েছে",
 
-  "seller_logged_in_successfully": "সেলার সফলভাবে লগইন হয়েছে"
+  "shop_fetched_successfully": "দোকানের তথ্য সফলভাবে লোড হয়েছে",
+  "shop_updated_successfully": "দোকানের সেটিংস সফলভাবে আপডেট হয়েছে",
+  "shop_name_already_taken": "এই দোকানের নামটি ইতিমধ্যে নেওয়া হয়েছে, অন্য নাম দিন",
+
+  "seller_registered_successfully": "সেলার অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে",
+  "seller_logged_in_successfully": "সেলার সফলভাবে লগইন হয়েছে",
+  "validation_failed": "হাইলাইট করা ঘরগুলো ঠিক করে আবার চেষ্টা করুন"
 }
